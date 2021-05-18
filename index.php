@@ -1,16 +1,34 @@
 <?php
+    require 'includes/header.php';
 ?>
 
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Rent-A-</title>
-</head>
-<body>
+<div class="container-fluid p-4 mb-5 ">
 
-</body>
-</html>
+    <div class="row">
+        <h2 class="text-center">INFO BEDRIJF</h2>
+    </div>
+
+    <div class="row">
+
+        <div class="col-md-4">
+            <img class="img-fluid" src="https://source.unsplash.com/random/600x400?sig=1" alt="" />
+
+        </div>
+
+        <div class="col-md-4">
+            <img class="img-fluid" src="https://source.unsplash.com/random/600x400?sig=2" alt="" />
+
+        </div>
+
+        <div class="col-md-4">
+            <img class="img-fluid" src="https://source.unsplash.com/random/600x400?sig=3" alt="" />
+
+        </div>
+
+    </div>
+
+</div>
+
+<?php
+    require 'includes/footer.php';
+?>
