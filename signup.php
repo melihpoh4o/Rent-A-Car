@@ -5,8 +5,9 @@ require 'includes/header.php';
 require 'includes/db.php';
 require 'includes/functions.php';
 
+$conn = getDB();
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
-    $conn = getDB();
 
     $voornaam = $_POST['voornaam'];
     $tussenvoegsel = $_POST['tussenvoegsel'];
@@ -42,63 +43,59 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 
 ?>
 
-<div class="row justify-content-center p-5">
+<div class="row justify-content-center p-5 mb-3 ">
+
+    <h3 class="mb-3 border-bottom border-3 border-secondery "></h3>
 
     <form class="p-5 mt-3 mb-3 col-sm-6 col-md-8 col-lg-6 col-xl-3 text-light rounded" method="post"   style="background-color: #1D334A">
 
+            <h3 class="mb-3">ACCOUNT AANMAKEN</h3>
+
             <div class="form-group mb-3">
-                <label class="mb-1" for="voornaam" >Voornaam</label>
-                <input type="text" name="voornaam" class="form-control" id="text" >
+                <input type="text" name="voornaam" class="form-control" placeholder="Voornaam" " >
             </div>
 
             <div class="form-group mb-3">
-                <label class="mb-1" for=tussenvoegsel"">Tussenvoegsel</label>
-                <input type="text" name="tussenvoegsel" class="form-control" id="text" >
+                <input type="text" name="tussenvoegsel" class="form-control" id="text" placeholder="Tussenvoegsel" >
             </div>
 
             <div class="form-group mb-3">
-                <label class="mb-1" for="achternaam" >Achternaam</label>
-                <input type="text" name="achternaam" class="form-control" id="text" >
+                <input type="text" name="achternaam" class="form-control"  placeholder="Achternaam" >
             </div>
 
             <div class="form-group mb-3">
-                <label class="mb-1" for="straat" >Straat</label>
-                <input type="text" name="straat" class="form-control" id="text" >
+                <input type="text" name="straat" class="form-control" id="text" placeholder="Straat" >
             </div>
 
             <div class="form-group mb-3">
-                <label class="mb-1" for="huisnummer" >Huisnummer</label>
-                <input type="text" name="huisnummer" class="form-control" id="text" >
+                <input type="text" name="huisnummer" class="form-control"  placeholder="Huisnummer" >
             </div>
 
             <div class="form-group mb-3">
-                <label class="mb-1" for="postcode" >Postcode</label>
-                <input type="text" name="postcode" class="form-control" id="text" >
+                <input type="text" name="postcode" class="form-control" placeholder="Postcode" >
             </div>
 
             <div class="form-group mb-3">
-                <label class="mb-1" for="plaats" >Plaats</label>
-                <input type="text" name="plaats" class="form-control" id="text" >
+                <input type="text" name="plaats" class="form-control" placeholder="Plaats" >
             </div>
 
             <div class="form-group mb-3">
-                <label class="mb-1" for="email" >E-mailadres</label>
-                <input type="email" name="email" class="form-control" id="text"  aria-describedby="emailHelp">
+                <input type="email" name="email" class="form-control" placeholder="E-mailadres"  aria-describedby="emailHelp">
             </div>
 
             <div class="form-group mb-3">
-                <label class="mb-1" for="wachtwoord">Wachtwoord</label>
-                <input type="password" name="wachtwoord" class="form-control" id="text"  >
+                <input type="password" name="wachtwoord" class="form-control"placeholder="Wachtwoord"  >
             </div>
 
             <div class="form-group mb-3">
-                <label class="mb-1" for="tel">Telefoon</label>
-                <input type="tel" name="tel" class="form-control" id="text" >
+                <input type="tel" name="tel" class="form-control" placeholder="Telefoon" >
             </div>
 
             <button type="submit" name="submit" class="btn  mt-3 bg-light">ACCOUNT MAKEN</button>
 
         </form>
+
+    <h3 class="mt-3 border-bottom border-3 border-secondery "></h3>
 
 </div>
 

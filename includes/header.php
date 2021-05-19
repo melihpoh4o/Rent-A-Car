@@ -20,7 +20,7 @@
 
         <ul class="navbar-nav menu-link">
             <li class="nav-item ">
-                <a class="nav-link active" aria-current="page" href="index.php">INLOGGEN</a>
+                <a class="nav-link active" aria-current="page" href="index.php">HOME</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">AUTO HUREN</a>
@@ -31,7 +31,7 @@
         </ul>
 
         <ul class='navbar-nav ml-auto ms-auto'>
-            <li class='nav-item'><a class='nav-link' href='login.php'> LOG IN </a></li>
+            <li class='nav-item'><a class='nav-link' href='login.php'> INLOGGEN </a></li>
             <li class='nav-item'><a class='nav-link' href='signup.php'> ACCOUNT MAKEN </a></li>
         </ul>
 
