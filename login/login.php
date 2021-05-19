@@ -38,8 +38,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                     echo "<p class='text-danger p-1'>We hebben geen klant account gevonden met dat e-mailadres of wachtwoord. 
                             Controleer of je ze juist hebt ingevoerd</p class='text-danger'>";
                 }
-
-
             }
 
         }
@@ -68,8 +66,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 
 }
 ?>
-
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -124,7 +120,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 
 </nav>
 
-
 <div class="row justify-content-center p-5">
 
     <h3 class="mb-3 border-bottom border-3 border-secondery "></h3>
@@ -149,6 +144,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     <h3 class="mt-5 border-bottom border-3 border-secondery "></h3>
 
 </div>
+</body>
 
 <?php
 require '../includes/footer.php';

@@ -21,7 +21,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 
     if(!empty($voornaam) && !empty($achternaam) && !is_numeric($voornaam) && !is_numeric($achternaam)
         && !empty($straat) && !empty($huisnummer) && !empty($postcode) && !empty($plaats)  && !empty($email) && !empty($wachtwoord)) {
-
         //save to database
         $query = "INSERT INTO klant (klant_voornaam,klant_tussenvoegsel,klant_achternaam,klant_straat,klant_huisnummer,
                    klant_postcode,klant_plaats,klant_email,klant_wachtwoord,klant_tel)
@@ -34,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     }
 
     else{
-        echo "Please enter some valid information";
+        echo "Voer een geldige informatie in";
     }
 
 }
