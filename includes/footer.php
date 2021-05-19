@@ -1,5 +1,5 @@
 
-<footer class="text-center text-white h-100 p-5 " style="background-color: #0E294B">
+<footer class="text-center text-white p-5 " style="background-color: #0E294B">
 
 </footer>
 
