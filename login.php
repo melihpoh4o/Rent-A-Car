@@ -45,18 +45,27 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 ?>
 
 <div class="row justify-content-center p-5">
+
+    <h3 class="mb-3 border-bottom border-3 border-secondery "></h3>
+
     <form class="p-5 mt-3 mb-3 col-sm-6 col-md-8 col-lg-6 col-xl-3 text-light rounded" method="post" style="background-color: #1D334A">
+
+        <h3 class="mb-3">INLOGGEN</h3>
+
             <div class="form-group mb-3">
-                <label class="mb-1" for="email">E-mailadres</label>
-                <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp">
+                <input type="email" class="form-control" id="email" name="email" placeholder="E-mailadres" aria-describedby="emailHelp">
             </div>
+
             <div class="form-group">
-                <label for="wachtwoord">Wachtwoord</label>
-                <input type="password" class="form-control" name="wachtwoord" id="wachtwoord" >
+                <input type="password" class="form-control" name="wachtwoord" placeholder="Wachtwoord" >
             </div>
 
             <button type="submit" name="login" value="Login" class="btn  mt-3 bg-light">INLOGGEN</button>
+
     </form>
+
+    <h3 class="mt-3 border-bottom border-3 border-secondery "></h3>
+
 </div>
 
 <?php
