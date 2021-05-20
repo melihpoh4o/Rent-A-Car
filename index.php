@@ -83,12 +83,8 @@ $klant = check_login_klant($conn);
 
 
 <div class="container-fluid p-4 mb-5 ">
+
     <div class="row">
-
-        <?php echo "Hello " . $klant['klant_voornaam']  ?>
-
-        <?php echo "Hello " . $medewerker['medewerker_voornaam']  ?>
-
         <h2 class="text-center">INFO BEDRIJF</h2>
     </div>
 

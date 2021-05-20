@@ -6,10 +6,13 @@ require 'includes/db.php';
 require 'includes/functions.php';
 
 $conn = getDB();
-check_login($conn);
 
+check_login($conn);
 $medewerker = check_login_medewerker($conn);
 $klant = check_login_klant($conn);
+
+update_gegevens($conn);
+
 
 ?>
 

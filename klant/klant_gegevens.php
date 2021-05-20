@@ -15,11 +15,11 @@
                 <h3 class="mb-3">GEGEVENS</h3>
 
                 <div class="form-group mb-3">
-                    <input type="email" name="email" class="form-control" placeholder="Email"  aria-describedby="emailHelp " value="<?php echo "" . $klant['klant_email']?> " required>
+                    <input type="email" name="email" class="form-control" placeholder="Email"  aria-describedby="emailHelp " value="<?php echo "" .$klant['klant_email']?>" required>
                 </div>
 
                 <div class="form-group mb-3">
-                    <input class="form-control mb-2" type="password" name="wachtwoord" id="myInput"  placeholder="Email" value="<?php echo "" . $klant['klant_wachtwoord']?> " required >
+                    <input class="form-control mb-2" type="password" name="wachtwoord" id="myInput"  placeholder="Email" value="<?php echo "" . $klant['klant_wachtwoord']?>" required >
                     <input class="form-check-input"  type="checkbox" onclick="showPassword()">
                 </div>
 
@@ -44,7 +44,7 @@
                 </div>
 
                 <div class="form-group mb-3">
-                    <input type="text" name="tussenvoegsel" class="form-control" id="text" placeholder="Tussenvoegsel" value="<?php echo "" . $klant['klant_tussenvoegsel']?> "  >
+                    <input type="text" name="tussenvoegsel" class="form-control" id="text" placeholder="Tussenvoegsel" value="<?php echo "" . $klant['klant_tussenvoegsel']?>"  >
                 </div>
 
                 <div class="form-group mb-3">
@@ -56,22 +56,22 @@
                 </div>
 
                 <div class="form-group mb-3">
-                    <input type="text" name="huisnummer" class="form-control" placeholder="Huisnummer" value="<?php echo "" . $klant['klant_huisnummer']?>  " required >
+                    <input type="text" name="huisnummer" class="form-control" placeholder="Huisnummer" value="<?php echo "" . $klant['klant_huisnummer']?>" required >
                 </div>
 
                 <div class="form-group mb-3">
-                    <input type="text" name="postcode" class="form-control" placeholder="Postcode" value="<?php echo "" . $klant['klant_postcode']?> " required >
+                    <input type="text" name="postcode" class="form-control" placeholder="Postcode" value="<?php echo "" . $klant['klant_postcode']?>" required >
                 </div>
 
                 <div class="form-group mb-3">
-                    <input type="text" name="plaats" class="form-control" placeholder="Plaats" value="<?php echo $klant['klant_plaats']?> " required >
+                    <input type="text" name="plaats" class="form-control" placeholder="Plaats" value="<?php echo $klant['klant_plaats']?>" required >
                 </div>
 
                 <div class="form-group mb-3">
-                    <input type="tel" name="tel" class="form-control" placeholder="Tel" value="<?php echo "" . $klant['klant_tel']?> ">
+                    <input type="tel" name="tel" class="form-control" placeholder="Tel" value="<?php echo "" .$klant['klant_tel']?>">
                 </div>
 
-                <button type="submit" name="mijn_gegevens" class="btn mt-3 bg-light">OPSLAAN</button>
+                <button type="submit" name="mijn_gegevens" class="btn mt-3 bg-light"  >OPSLAAN</button>
 
             </form>
 
