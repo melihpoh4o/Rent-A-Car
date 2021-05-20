@@ -63,8 +63,7 @@ $klant = check_login_klant($conn);
                         </svg>
                     </a>
                     <ul class="dropdown-menu " style="right: 0; left: auto">
-                        <li><a class="dropdown-item" href="#">Settings</a></li>
-                        <li><a class="dropdown-item" href="#">Profiel</a></li>
+                        <li><a class="dropdown-item" href="accountinstellingen.php">Accountinstellingen</a></li>
                         <li><a class="dropdown-item" href="login/logout.php">Uitloggen</a></li>
                     </ul>
                 </li>
