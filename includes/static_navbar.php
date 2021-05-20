@@ -7,12 +7,12 @@
     <div class="collapse navbar-collapse" id="navbarNav2" >
         <ul class="navbar-nav menu-link">
 
-            <li class="nav-item">
+            <li class="nav-item ">
                 <a class="nav-link"  href="index.php">HOME</a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="#">AUTO HUREN</a>
+                <a class="nav-link " href="#">AUTO HUREN</a>
             </li>
 
             <li class="nav-item">
