@@ -63,7 +63,12 @@ $klant = check_login_klant($conn);
                         </svg>
                     </a>
                     <ul class="dropdown-menu " style="right: 0; left: auto">
-                        <li><a class="dropdown-item" href="accountinstellingen.php">Accountinstellingen</a></li>
+                        <li><a class="dropdown-item" href="account.php">Account</a></li>
+
+                        <?php if (isset($_SESSION['id_medewerker']) == 1){
+                            check_gebruiker_nav($conn);
+                        }?>
+
                         <li><a class="dropdown-item" href="login/logout.php">Uitloggen</a></li>
                     </ul>
                 </li>
@@ -71,7 +76,6 @@ $klant = check_login_klant($conn);
         </div>
 
     </div>
-
 
 </nav>
 

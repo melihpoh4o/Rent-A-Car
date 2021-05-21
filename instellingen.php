@@ -11,22 +11,19 @@ check_login($conn);
 $medewerker = check_login_medewerker($conn);
 $klant = check_login_klant($conn);
 
-update_gegevens($conn);
-
-
 ?>
 
 <!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport"
-              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Rent-A-Car</title>
-        <link rel="stylesheet" href="css/css.css">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Rent-A-Car</title>
+    <link rel="stylesheet" href="css/css.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+</head>
 <body>
 
 <?php if ($klant || $medewerker): ?>
@@ -66,7 +63,12 @@ update_gegevens($conn);
                             </svg>
                         </a>
                         <ul class="dropdown-menu " style="right: 0; left: auto">
-                            <li><a class="dropdown-item" href="Accountinstellingen.php">Accountinstellingen</a></li>
+                            <li><a class="dropdown-item" href="account.php">Account</a></li>
+
+                            <?php if (isset($_SESSION['id_medewerker']) == 1){
+                                check_gebruiker_nav($conn);
+                            }?>
+
                             <li><a class="dropdown-item" href="login/logout.php">Uitloggen</a></li>
                         </ul>
                     </li>
@@ -80,25 +82,46 @@ update_gegevens($conn);
 
 <?php else: ?>
 
-<?php require 'includes/static_navbar.php'?>
+    <?php require 'includes/static_navbar.php' ?>
 
 <?php endif;  ?>
 
 
-<?php if ($klant): ?>
+<?php if ($medewerker): ?>
 
-<?php require 'klant/klant_gegevens.php'?>
+    <div class="container-fluid p-4 mb-5 ">
 
+        <?php if ($_SESSION['id_medewerker'] == 1) : ?>
 
-<?php elseif ($medewerker): ?>
+            <div class="row">
 
-<?php require 'medewerker/medewerker_gegevens.php' ?>
+                <div class="d-flex justify-content-center mb-3 mt-3  ">
+                    <form method="post" class="mb-3 mt-3  ">
+
+                        <select class="form-select form-select-md mb-3" aria-label=".form-select-lg example">
+                            <option disabled selected>ZOEK VOOR KLANT OF MEDEWERKER</option>
+                            <option value="1">KLANT</option>
+                            <option value="2">MEDEWERKER</option>
+                        </select>
+
+                        <button type="submit" name="checkbox_gebruiker" class="btn bg-success text-white ">VERSTUUR</button>
+                    </form>
+                </div>
+
+                <div class="col-md-12">
+                    <?php admin_gebruiker_check($conn) ?>
+                </div>
+
+            </div>
+
+        <?php endif; ?>
+
+    </div>
 
 <?php endif; ?>
 
 
 <script src="js/functions.js"></script>
-
 
 <?php
 require 'includes/footer.php';
