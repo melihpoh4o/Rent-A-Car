@@ -3,7 +3,8 @@
 session_start();
 
 require 'includes/db.php';
-require 'includes/functions.php';
+require 'functions/check_login.php';
+require 'functions/check_gebruiker_nav.php';
 
 $conn = getDB();
 check_login($conn);

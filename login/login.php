@@ -2,7 +2,7 @@
 session_start();
 
 require '../includes/db.php';
-require '../includes/functions.php';
+require '../functions/check_login.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     $conn = getDB();

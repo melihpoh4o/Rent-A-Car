@@ -3,7 +3,9 @@
 session_start();
 
 require 'includes/db.php';
-require 'includes/functions.php';
+require 'functions/admin_gebruiker_check.php';
+require 'functions/check_login.php';
+require 'functions/check_gebruiker_nav.php';
 
 $conn = getDB();
 
@@ -108,7 +110,7 @@ $klant = check_login_klant($conn);
                 </div>
 
                 <div class="col-md-12">
-                    <?php admin_gebruiker_check($conn) ?>
+                    <?php admin_gebruiker_check($conn); ?>
                 </div>
 
             </div>
