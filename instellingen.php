@@ -23,7 +23,6 @@ $klant = check_login_klant($conn);
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Rent-A-Car</title>
-    <link rel="stylesheet" href="css/css.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 </head>
 <body>
@@ -100,9 +99,9 @@ $klant = check_login_klant($conn);
                 <div class="d-flex justify-content-center mb-3 mt-3  ">
                     <form method="post" class="mb-3 mt-3  ">
                         <select name="gebruikers" class="form-select form-select-md mb-3" aria-label=".form-select-lg example">
-                            <option value="1" selected>ZOEK VOOR KLANT EN MEDEWERKER</option>
-                            <option value="2">KLANT</option>
-                            <option value="3">MEDEWERKER</option>
+                            <option name="1" value="1" selected>ZOEK VOOR KLANT EN MEDEWERKER</option>
+                            <option name="2" value="2">KLANT</option>
+                            <option name="3" value="3">MEDEWERKER</option>
                         </select>
 
                         <button type="submit" name="button_gebruiker" class="btn bg-success text-white ">VERSTUUR</button>
