@@ -97,14 +97,13 @@ $klant = check_login_klant($conn);
 
                 <div class="d-flex justify-content-center mb-3 mt-3  ">
                     <form method="post" class="mb-3 mt-3  ">
-
-                        <select class="form-select form-select-md mb-3" aria-label=".form-select-lg example">
-                            <option disabled selected>ZOEK VOOR KLANT OF MEDEWERKER</option>
-                            <option value="1">KLANT</option>
-                            <option value="2">MEDEWERKER</option>
+                        <select name="gebruikers" class="form-select form-select-md mb-3" aria-label=".form-select-lg example">
+                            <option value="1" selected>ZOEK VOOR KLANT EN MEDEWERKER</option>
+                            <option value="2">KLANT</option>
+                            <option value="3">MEDEWERKER</option>
                         </select>
 
-                        <button type="submit" name="checkbox_gebruiker" class="btn bg-success text-white ">VERSTUUR</button>
+                        <button type="submit" name="button_gebruiker" class="btn bg-success text-white ">VERSTUUR</button>
                     </form>
                 </div>
 
