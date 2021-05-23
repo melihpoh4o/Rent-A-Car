@@ -18,11 +18,15 @@ function admin_gebruiker_check($conn){
 
             if ($_POST['gebruikers'] == 1) {
 
-                echo "<table class='table table-striped'><tr><th scope='col'>Naam</th><th scope='col'>Email</th>
+                echo "<table class='table table-striped'><tr><th class='col'>Rol</th><th scope='col'>Naam</th><th scope='col'>Email</th>
                             <th>GOEDKEUREN</th><th>VERWIJDEREN</th></tr>";
                 while ($row = mysqli_fetch_assoc($results)) {
                     echo "<tr>
-    
+                            
+                            <td style='word-break:break-all;'>
+                                <p>Klant</p>
+                            </td>
+                            
                             <td style='word-break:break-all;'>
                                 " . $row["klant_voornaam"] . " " . $row["klant_achternaam"] ."
                             </td>
@@ -43,7 +47,11 @@ function admin_gebruiker_check($conn){
 
                 while ($row = mysqli_fetch_assoc($results_medewerker)) {
                     echo "<tr>
-    
+                            
+                            <td style='word-break:break-all;'>
+                                <p>Medewerker</p>
+                            </td>
+                            
                             <td style='word-break:break-all;'>
                                 " . $row["medewerker_voornaam"] . " " . $row["medewerker_achternaam"] . "
                             </td>
@@ -67,11 +75,14 @@ function admin_gebruiker_check($conn){
 
 
             if ($_POST['gebruikers'] == 2) {
-                if ($results && mysqli_num_rows($results) > 0) {
-                    echo "<table class='table table-striped'><tr><th scope='col'>Naam</th><th scope='col'>Email</th>
-                          <th>GOEDKEUREN</th></tr>";
+                    echo "<table class='table table-striped'><tr><th class='col'>Rol</th><th scope='col'>Naam</th><th scope='col'>Email</th>
+                            <th>GOEDKEUREN</th></tr>";
                     while ($row = mysqli_fetch_assoc($results)) {
                         echo "<tr>
+                            
+                            <td style='word-break:break-all;'>
+                                <p>Klant</p>
+                            </td>
     
                             <td style='word-break:break-all;'>
                                 " . $row["klant_voornaam"] . " " . $row["klant_achternaam"] . "
@@ -89,19 +100,18 @@ function admin_gebruiker_check($conn){
                         </tr>";
                     }
                     echo "</table>";
-                }
-                else{
-                    echo "";
-                }
-
             }
 
             if ($_POST['gebruikers'] == 3) {
-                echo "<table class='table table-striped'><tr><th scope='col'>Naam</th><th scope='col'>Email</th>
+                echo "<table class='table table-striped'><tr><th class='col'>Rol</th><th scope='col'>Naam</th><th scope='col'>Email</th>
                             <th>VERWIJDEREN</th></tr>";
                 while ($row = mysqli_fetch_assoc($results_medewerker)) {
                     echo "<tr>
-    
+                                
+                            <td style='word-break:break-all;'>
+                                <p>Medewerker</p>
+                            </td>
+                                
                             <td style='word-break:break-all;'>
                                 " . $row["medewerker_voornaam"] . " " . $row["medewerker_achternaam"] . "
                             </td>

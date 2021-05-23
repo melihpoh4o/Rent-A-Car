@@ -4,7 +4,7 @@ require '../includes/db.php';
 $get_id = $_GET['edit'];
 $conn = getDB();
 
-$query = "INSERT INTO medewerker 
+$query_insert = "INSERT INTO medewerker 
             (medewerker_voornaam,
             medewerker_tussenvoegsel,
             medewerker_achternaam,
@@ -29,15 +29,20 @@ $query = "INSERT INTO medewerker
           FROM klant             
           WHERE id_klant = '$get_id'";
 
-$query_delete = "DELETE FROM klant WHERE id_klant = '$get_id'";
+$query_delete_factuur = "DELETE FROM factuur WHERE id_klant = '$get_id'";
+$query_delete_reservering = "DELETE FROM reservering WHERE id_klant = '$get_id'";
+$query_delete_klant = "DELETE FROM klant WHERE id_klant = '$get_id'";
 
-if (mysqli_query($conn, $query)){
-    mysqli_query($conn,$query_delete);
+
+
+if (mysqli_query($conn, $query_insert)){
+    mysqli_query($conn,$query_delete_factuur);
+    mysqli_query($conn,$query_delete_reservering);
+    mysqli_query($conn,$query_delete_klant);
     header("Location: ../instellingen.php");
-    die();
 } else {
-    echo "Error deleting record: " . mysqli_error($conn);
+    echo "Error record: " . mysqli_error($conn);
 }
 
-mysqli_close($conn);
+
 ?>
