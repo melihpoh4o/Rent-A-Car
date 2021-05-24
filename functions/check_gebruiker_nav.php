@@ -9,6 +9,10 @@ function check_gebruiker_nav($conn){
         echo "<li><a class='dropdown-item' href='instellingen.php'>Instellingen</a></li>";
     }
 
+    if ($id_medewerker){
+        echo "<li><a class='dropdown-item' href='voertuigen.php'>Voertuigen</a></li>";
+    }
+
     else if ($id_medewerker && $_SESSION['id_medewerker'] !== 1){
         echo "";
     }

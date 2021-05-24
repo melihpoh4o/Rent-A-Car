@@ -3,7 +3,6 @@
 session_start();
 
 require 'includes/db.php';
-require 'functions/admin_gebruiker_check.php';
 require 'functions/check_login.php';
 require 'functions/check_gebruiker_nav.php';
 
@@ -83,44 +82,16 @@ $klant = check_login_klant($conn);
 
     <?php require 'includes/static_navbar.php' ?>
 
-<?php endif;  ?>
-
-
-<?php if ($medewerker): ?>
-
-    <div class="container-fluid p-4 mb-5 ">
-
-        <?php if ($_SESSION['id_medewerker'] == 1) : ?>
-
-            <div class="row">
-
-                <div class="d-flex justify-content-center mb-3 mt-3  ">
-                    <form method="post" class="mb-3 mt-3  ">
-                        <select name="gebruikers" class="form-select form-select-md mb-3" aria-label=".form-select-lg example">
-                            <option name="1" value="1" selected>ZOEK VOOR KLANT EN MEDEWERKER</option>
-                            <option name="2" value="2">KLANT</option>
-                            <option name="3" value="3">MEDEWERKER</option>
-                        </select>
-
-                        <button type="submit" name="button_gebruiker" class="btn bg-success text-white ">VERSTUUR</button>
-                    </form>
-                </div>
-
-                <div class="col-md-12">
-                    <?php admin_gebruiker_check($conn); ?>
-                </div>
-
-            </div>
-
-        <?php endif; ?>
-
-    </div>
-
 <?php endif; ?>
 
 
+<p><a href="functions/voertuig_toevoegen.php">Voertuig toevoegen</a></p>
+
 <script src="js/functions.js"></script>
+
 
 <?php
 require 'includes/footer.php';
 ?>
+
+
