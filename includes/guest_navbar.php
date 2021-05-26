@@ -12,11 +12,11 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link " href="#">AUTO HUREN</a>
+                <a class="nav-link " href="voertuig_huren.php">AUTO HUREN</a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="#">CONTACT</a>
+                <a class="nav-link" href="contact.php">CONTACT</a>
             </li>
 
         </ul>
@@ -24,11 +24,11 @@
         <ul class='navbar-nav ml-auto ms-auto'>
 
             <li class='nav-item'>
-                <a class='nav-link' href='login/login.php'> INLOGGEN </a>
+                <a class='nav-link' href='login.php'> INLOGGEN </a>
             </li>
 
             <li class='nav-item'>
-                <a class='nav-link' href='login/signup.php'> ACCOUNT MAKEN </a>
+                <a class='nav-link' href='signup.php'> ACCOUNT MAKEN </a>
             </li>
         </ul>
     </div>

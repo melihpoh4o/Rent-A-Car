@@ -1,5 +1,5 @@
 <?php
-require '../includes/db.php';
+require '../functions/db.php';
 
 $get_id = $_GET['edit'];
 $conn = getDB();
@@ -39,7 +39,7 @@ if (mysqli_query($conn, $query_insert)){
     mysqli_query($conn,$query_delete_factuur);
     mysqli_query($conn,$query_delete_reservering);
     mysqli_query($conn,$query_delete_klant);
-    header("Location: ../instellingen.php");
+    header("Location: ../pages/instellingen.php");
 } else {
     echo "Error record: " . mysqli_error($conn);
 }

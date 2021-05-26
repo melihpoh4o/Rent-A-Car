@@ -2,33 +2,28 @@
 
 session_start();
 
-require 'includes/db.php';
-require 'functions/check_login.php';
+//require functions
+require 'functions/db.php';
+require 'functions/check_if_logged_in.php';
 require 'functions/check_gebruiker_nav.php';
 
+//call functions
 $conn = getDB();
+check_if_logged_in($conn);
 
-check_login($conn);
+//set variables tp check if medewerker or klant is logged in
 $medewerker = check_login_medewerker($conn);
 $klant = check_login_klant($conn);
 
+
 ?>
 
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Rent-A-Car</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-</head>
-<body>
+    <!-- Voeg html header toe -->
+<?php require 'includes/header.php'?>
 
 <?php if ($klant || $medewerker): ?>
-    <!-- navbar -->
-    <nav class="navbar navbar-dark navbar-expand-lg container-fluid p-4" style="background-color: #0E294B; ">
+    <!--Logged in navbar-->
+    <nav class="navbar navbar-dark  navbar-expand-lg container-fluid p-4" style="background-color: #0E294B; ">
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon "></span>
@@ -43,11 +38,11 @@ $klant = check_login_klant($conn);
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link " href="#">AUTO HUREN</a>
+                    <a class="nav-link " href="voertuig_huren.php">AUTO HUREN</a>
                 </li>
 
                 <li class="nav-item ">
-                    <a class="nav-link " href="#">CONTACT</a>
+                    <a class="nav-link " href="contact.php">CONTACT</a>
                 </li>
             </ul>
 
@@ -63,11 +58,9 @@ $klant = check_login_klant($conn);
                             </svg>
                         </a>
                         <ul class="dropdown-menu " style="right: 0; left: auto">
-                            <li><a class="dropdown-item" href="account.php">Account</a></li>
-
+                            <li><a class="dropdown-item" href="pages/account.php">Account</a></li>
                             <?php if ($medewerker) check_gebruiker_nav($conn) ?>
-
-                            <li><a class="dropdown-item" href="login/logout.php">Uitloggen</a></li>
+                            <li><a class="dropdown-item" href="pages/logout.php">Uitloggen</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -75,23 +68,19 @@ $klant = check_login_klant($conn);
 
         </div>
 
-
     </nav>
 
-<?php else: ?>
-
-    <?php require 'includes/static_navbar.php' ?>
+<?php else : ?>
+    <!-- Guest navbar -->
+    <?php require 'includes/guest_navbar.php'?>
 
 <?php endif; ?>
 
 
-<p><a href="functions/voertuig_toevoegen.php">Voertuig toevoegen</a></p>
+    <!--  Content van de pagina -->
+    <div class="container-fluid">
 
-<script src="js/functions.js"></script>
+    </div>
 
-
-<?php
-require 'includes/footer.php';
-?>
-
-
+    <!-- Voeg footer toe -->
+<?php require 'includes/footer.php' ?>

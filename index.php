@@ -2,58 +2,52 @@
 
 session_start();
 
-require 'includes/db.php';
-require 'functions/check_login.php';
+//require functions
+require 'functions/db.php';
+require 'functions/check_if_logged_in.php';
 require 'functions/check_gebruiker_nav.php';
 
+//call functions
 $conn = getDB();
-check_login($conn);
+check_if_logged_in($conn);
 
+//set variables tp check if medewerker or klant is logged in
 $medewerker = check_login_medewerker($conn);
 $klant = check_login_klant($conn);
 
+
 ?>
 
-<!doctype html>
-<html lang="en">
-<head>
-        <meta charset="UTF-8">
-        <meta name="viewport"
-              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Rent-A-Car</title>
-        <link rel="stylesheet" href="css/css.css">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-    </head>
-<body>
+<!-- Voeg html header toe -->
+<?php require 'includes/header.php'?>
 
 <?php if ($klant || $medewerker): ?>
-<!-- navbar -->
+<!--Logged in navbar-->
 <nav class="navbar navbar-dark  navbar-expand-lg container-fluid p-4" style="background-color: #0E294B; ">
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon "></span>
+                <span class="navbar-toggler-icon "></span>
     </button>
 
 
     <div class="collapse navbar-collapse" id="navbarNav" >
-        <!--navbar left-->
+                <!--navbar left-->
         <ul class="navbar-nav menu-link ">
             <li class="nav-item ">
                 <a class="nav-link "  href="index.php">HOME</a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link " href="#">AUTO HUREN</a>
+                <a class="nav-link " href="voertuig_huren.php">AUTO HUREN</a>
             </li>
 
             <li class="nav-item ">
-                <a class="nav-link " href="#">CONTACT</a>
+                <a class="nav-link " href="contact.php">CONTACT</a>
             </li>
         </ul>
 
 
-        <!--navbar right-->
+                <!--navbar right-->
         <div class="navbar-collapse" id="navbarNavDarkDropdown ">
             <ul class="navbar-nav ml-auto ms-auto   ">
                 <li class="nav-item dropdown ">
@@ -64,12 +58,12 @@ $klant = check_login_klant($conn);
                         </svg>
                     </a>
                     <ul class="dropdown-menu " style="right: 0; left: auto">
-                        <li><a class="dropdown-item" href="account.php">Account</a></li>
-
+                        <li><a class="dropdown-item" href="pages/account.php">Account</a></li>
 
                         <?php if ($medewerker) check_gebruiker_nav($conn) ?>
 
-                        <li><a class="dropdown-item" href="login/logout.php">Uitloggen</a></li>
+
+                        <li><a class="dropdown-item" href="pages/logout.php">Uitloggen</a></li>
                     </ul>
                 </li>
             </ul>
@@ -79,40 +73,17 @@ $klant = check_login_klant($conn);
 
 </nav>
 
-<?php else: ?>
+<?php else : ?>
+<!-- Guest navbar -->
+<?php require 'includes/guest_navbar.php'?>
 
-<?php require 'includes/static_navbar.php'?>
-
-<?php endif;  ?>
+<?php endif; ?>
 
 
-<div class="container-fluid p-4 mb-5 ">
-
-    <div class="row">
-        <h2 class="text-center">INFO BEDRIJF</h2>
-    </div>
-
-    <div class="row">
-
-        <div class="col-md-4">
-            <img class="img-fluid" src="https://source.unsplash.com/random/600x400?sig=1" alt="" />
-
-        </div>
-
-        <div class="col-md-4">
-            <img class="img-fluid" src="https://source.unsplash.com/random/600x400?sig=2" alt="" />
-
-        </div>
-
-        <div class="col-md-4">
-            <img class="img-fluid" src="https://source.unsplash.com/random/600x400?sig=3" alt="" />
-        </div>
-
-    </div>
+<!--  Content van de pagina -->
+<div class="container-fluid">
 
 </div>
 
-
-<?php
-    require 'includes/footer.php';
-?>
+<!-- Voeg footer toe -->
+<?php require 'includes/footer.php' ?>

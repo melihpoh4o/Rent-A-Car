@@ -1,7 +1,7 @@
 <?php
 
 //check of je nog ingelogd bent
-function check_login($conn){
+function check_if_logged_in($conn){
 
     function check_login_klant($conn){
         if (isset($_SESSION['id_klant'])){

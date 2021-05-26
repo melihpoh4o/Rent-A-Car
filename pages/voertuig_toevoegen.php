@@ -2,56 +2,65 @@
 
 session_start();
 
-require '../includes/db.php';
-require '../functions/check_login.php';
+require '../functions/db.php';
+require '../functions/check_if_logged_in.php';
 require '../functions/check_gebruiker_nav.php';
 
 $conn = getDB();
 
-check_login($conn);
+check_if_logged_in($conn);
 $medewerker = check_login_medewerker($conn);
 $klant = check_login_klant($conn);
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-    $filename = $_FILES["uploadfile"]["name"];
-    $tempname = $_FILES["uploadfile"]["tmp_name"];
-    $folder = "../image/".$filename;
+        $auto_img = $_FILES["uploadfile"]["name"];
+        $tempname = $_FILES["uploadfile"]["tmp_name"];
+        $folder = "../image/".$auto_img;
 
 
-    $merk = $_POST['merk'];
-    $model = $_POST['model'];
-    $bouwjaar = $_POST['bouwjaar'];
-    $kilometerstand = $_POST['kilometerstand'];
-    $prijs = $_POST['prijs'];
-    $kenteken = $_POST['kenteken'];
-    $wagens = $_POST['wagens'];
-    $status = $_POST['status'];
-    $info = $_POST['info'];
+        $merk = $_POST['merk'];
+        $model = $_POST['model'];
+        $bouwjaar = $_POST['bouwjaar'];
+        $kilometerstand = $_POST['kilometerstand'];
+        $prijs = $_POST['prijs'];
+        $kenteken = $_POST['kenteken'];
+        $wagens = $_POST['wagens'];
+        $status = $_POST['status'];
+        $info = $_POST['info'];
 
-    if (is_numeric($bouwjaar) || is_numeric($kilometerstand) || is_numeric($prijs)) {
+        if (is_numeric($bouwjaar) || is_numeric($kilometerstand) || is_numeric($prijs)) {
 
-        $query_auto_model = "INSERT INTO auto_model (auto_model_merk,auto_model_model,
-                            auto_model_bouwjaar,auto_model_kilometerstand,auto_model_prijs_per_dag)
-                         VALUES ('$merk','$model','$bouwjaar','$kilometerstand','$prijs')";
+            $query_auto_model = "INSERT INTO auto_model (auto_model_merk,auto_model_model,
+                                auto_model_bouwjaar,auto_model_kilometerstand,auto_model_prijs_per_dag)
+                             VALUES ('$merk','$model','$bouwjaar','$kilometerstand','$prijs')";
 
-        if (mysqli_query($conn, $query_auto_model)) {
-            $last_id = mysqli_insert_id($conn);
+            if (mysqli_query($conn, $query_auto_model)) {
+                $last_id = mysqli_insert_id($conn);
 
-            $query_auto = "INSERT INTO auto (id_auto_model,auto_kenteken,auto_soort,auto_status,auto_info,filename)
-                         VALUES ('$last_id','$kenteken','$wagens','$status','$info','$filename')";
+                $query_auto = "INSERT INTO auto (id_auto_model,auto_kenteken,auto_soort,auto_status,auto_info,auto_img)
+                             VALUES ('$last_id','$kenteken','$wagens','$status','$info','$auto_img')";
 
-            mysqli_query($conn, $query_auto);
-            header("Location: voertuig_toevoegen.php");
+                mysqli_query($conn, $query_auto);
+                header("Location: ../pages/voertuigen.php");
+            }
         }
-    }
 
-    // Now let's move the uploaded image into the folder: image
-    if (move_uploaded_file($tempname, $folder))  {
-        $msg = "Image uploaded successfully";
-    }else{
-        $msg = "Failed to upload image";
-    }
+        // Now let's move the uploaded image into the folder: image
+        if (move_uploaded_file($tempname, $folder))  {
+            $msg = "Image uploaded successfully";
+        }else{
+            $msg = "Failed to upload image";
+        }
+
+        $result = mysqli_query($conn, "SELECT * FROM auto");
+        while($row = mysqli_fetch_array($result)){
+            ?>
+
+            <img class="img-fluid" alt="Responsive image" src="<?php echo "../image/" . $row['auto_img']; ?>">
+
+            <?php
+        }
 
 }
 
@@ -106,17 +115,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                             </svg>
                         </a>
                         <ul class="dropdown-menu " style="right: 0; left: auto">
-                            <li><a class="dropdown-item" href="../account.php">Account</a></li>
+                            <li><a class="dropdown-item" href="account.php">Account</a></li>
 
                             <?php if ($medewerker == 1 ):  ?>
 
-                            <li><a class="dropdown-item" href="../instellingen.php">Instellingen</a></li>
+                                <li><a class="dropdown-item" href="instellingen.php">Instellingen</a></li>
 
                             <?php endif; ?>
 
-                            <li><a class="dropdown-item" href="../voertuigen.php">Voertuigen</a></li>
+                            <li><a class="dropdown-item" href="voertuigen.php">Voertuigen</a></li>
 
-                            <li><a class="dropdown-item" href="../login/logout.php">Uitloggen</a></li>
+                            <li><a class="dropdown-item" href="login/logout.php">Uitloggen</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -129,7 +138,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 <?php else: ?>
 
-    <?php require 'includes/static_navbar.php' ?>
+    <?php require '../includes/guest_navbar.php' ?>
 
 <?php endif; ?>
 
@@ -218,5 +227,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 
 <?php
-require '../includes/footer.php';
+require '../includes/footer.php'
 ?>

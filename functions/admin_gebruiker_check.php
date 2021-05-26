@@ -36,7 +36,7 @@ function admin_gebruiker_check($conn){
                             </td style='word-break:break-all;'>
                             
                             <td style='word-break:break-all;'>
-                               <a href='functions/klant_goedkeuren.php?edit=" . $row['id_klant'] . "' class='text-decoration-none btn bg-success text-light '>VERSTUUR</a>
+                               <a href='../pages/klant_goedkeuren.php?edit=" . $row['id_klant'] . "' class='text-decoration-none btn bg-success text-light '>VERSTUUR</a>
                             </td> 
                             
                             <td style='word-break:break-all;'>
@@ -64,7 +64,7 @@ function admin_gebruiker_check($conn){
                             </td style='word-break:break-all;'>
                             
                             <td style='word-break:break-all;'>
-                               <a href='functions/delete_medewerker.php?edit=" . $row['id_medewerker'] . "' class='text-decoration-none btn bg-danger text-light '>VERSTUUR</a>
+                               <a href='../pages/delete_medewerker.php?edit=" . $row['id_medewerker'] . "' class='text-decoration-none btn bg-danger text-light '>VERSTUUR</a>
                             </td> 
 
                         </tr>";
@@ -75,10 +75,10 @@ function admin_gebruiker_check($conn){
 
 
             if ($_POST['gebruikers'] == 2) {
-                    echo "<table class='table table-striped'><tr><th class='col'>Rol</th><th scope='col'>Naam</th><th scope='col'>Email</th>
+                echo "<table class='table table-striped'><tr><th class='col'>Rol</th><th scope='col'>Naam</th><th scope='col'>Email</th>
                             <th>GOEDKEUREN</th></tr>";
-                    while ($row = mysqli_fetch_assoc($results)) {
-                        echo "<tr>
+                while ($row = mysqli_fetch_assoc($results)) {
+                    echo "<tr>
                             
                             <td style='word-break:break-all;'>
                                 <p>Klant</p>
@@ -93,13 +93,13 @@ function admin_gebruiker_check($conn){
                             </td style='word-break:break-all;'> 
                             
                             <td style='word-break:break-all;'>
-                               <a href='functions/klant_goedkeuren.php?edit=" . $row['id_klant'] . "' class='text-decoration-none btn bg-success text-light '>VERSTUUR</a>
+                               <a href='../pages/klant_goedkeuren.php?edit=". $row['id_klant'] . "' class='text-decoration-none btn bg-success text-light '>VERSTUUR</a>
                             </td> 
                            
                         
                         </tr>";
-                    }
-                    echo "</table>";
+                }
+                echo "</table>";
             }
 
             if ($_POST['gebruikers'] == 3) {
@@ -121,7 +121,7 @@ function admin_gebruiker_check($conn){
                             </td style='word-break:break-all;'>
                             
                             <td style='word-break:break-all;'>
-                               <a href='functions/delete_medewerker.php?edit=" . $row['id_medewerker'] . "' class='text-decoration-none btn bg-danger text-light '>VERSTUUR</a>
+                               <a href='../delete_medewerker.php?edit=" . $row['id_medewerker'] . "' class='text-decoration-none btn bg-danger text-light '>VERSTUUR</a>
                             </td> 
                             
                         </tr>";
