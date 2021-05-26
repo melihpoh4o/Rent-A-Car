@@ -1,10 +1,10 @@
-<nav class="navbar navbar-expand-lg navbar-dark container-fluid p-4" style="background-color: #0E294B">
+<nav class="shadow-lg rounded navbar navbar-expand-lg navbar-light bg-light container-fluid p-4 text-color">
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon "></span>
     </button>
 
-    <div class="collapse navbar-collapse" id="navbarNav2" >
+    <div class="collapse navbar-collapse" id="navbarNav" >
         <ul class="navbar-nav menu-link">
 
             <li class="nav-item ">
@@ -21,16 +21,20 @@
 
         </ul>
 
-        <ul class='navbar-nav ml-auto ms-auto'>
+        <div class="navbar-collapse" id="navbarNavDarkDropdown ">
+            <ul class='navbar-nav ml-auto ms-auto'>
 
-            <li class='nav-item'>
-                <a class='nav-link' href='login.php'> INLOGGEN </a>
-            </li>
+                <li class='nav-item'>
+                    <a class='nav-link' href='login.php'> INLOGGEN </a>
+                </li>
 
-            <li class='nav-item'>
-                <a class='nav-link' href='signup.php'> ACCOUNT MAKEN </a>
-            </li>
-        </ul>
+                <li class='nav-item'>
+                    <a class='nav-link' href='signup.php'> ACCOUNT MAKEN </a>
+                </li>
+            </ul>
+        </div>
+
+
     </div>
 
 </nav>

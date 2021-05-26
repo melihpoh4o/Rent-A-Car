@@ -30,12 +30,11 @@ $get_id = $_GET['edit'];
 
 <?php if ($klant || $medewerker): ?>
     <!--Logged in navbar-->
-    <nav class="navbar navbar-dark  navbar-expand-lg container-fluid p-4" style="background-color: #0E294B; ">
+    <nav class="shadow-lg rounded navbar navbar-expand-lg navbar-light bg-light container-fluid p-4 text-color">
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon "></span>
         </button>
-
 
         <div class="collapse navbar-collapse" id="navbarNav" >
             <!--navbar left-->
@@ -87,9 +86,8 @@ $get_id = $_GET['edit'];
 
 <?php endif; ?>
 
-
     <!--  Content van de pagina -->
-    <div class="container p-4 mb-5 ">
+    <div class="container p-4 mb-3 ">
 
         <div class="row">
 
@@ -98,9 +96,9 @@ $get_id = $_GET['edit'];
                 <h3 class="mb-3 border-bottom border-3 border-secondery "></h3>
 
 
-                <form class="p-5 mt-3 mb-3 text-light rounded" method="post" enctype="multipart/form-data" >
+                <form class="p-5 mt-3 mb-3 text-light shadow-lg rounded" method="post" enctype="multipart/form-data" >
 
-                    <h3 class="mb-3">VOERTUIG</h3>
+                    <h3 class="mb-3 text-dark">VOERTUIG</h3>
 
                     <div class="form-group mb-3">
                         <input type="text" name="auto_model_merk" class="form-control" placeholder="Auto merk" value="<?php echo "" . $auto['auto_model_merk']?>" required  >
@@ -176,7 +174,7 @@ $get_id = $_GET['edit'];
                     $results = mysqli_query($conn, $query);
                     $user_data = mysqli_fetch_assoc($results);
                     ?>
-                    <div class="row mb-3">
+                    <div class="row mb-3 ">
                         <input type="file" name="uploadfile" class="form-control-file mb-3 text-dark" id="exampleFormControlFile1" >
                             <?php if (empty($user_data['auto_img']) || is_null($user_data['auto_img'])): echo "";?>
                             <?php else: ?>
@@ -184,8 +182,8 @@ $get_id = $_GET['edit'];
                             <?php endif; ?>
                     </div>
 
-                    <button type="submit" name="opslaan" class="btn mt-3 bg-success text-white ">OPSLAAN</button>
-                    <button type="submit" name="delete" class="btn mt-3 bg-danger text-white ">VERWIJDEREN</button>
+                    <button type="submit" name="opslaan" class="btn btn-success bg-light text-dark ">OPSLAAN</button>
+                    <button type="submit" name="delete" class="btn btn-danger bg-light text-dark ">VERWIJDEREN</button>
 
                 </form>
 

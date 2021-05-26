@@ -37,7 +37,7 @@ function zoek_voertuig($conn){
                             </td style='word-break:break-all;'> 
                             
                             <td style='word-break:break-all;'>
-                               <a href='../pages/voertuig_bewerken.php?edit=" . $row['id_auto_model'] . "' class='text-decoration-none btn bg-info text-light '>BEWERKEN</a>
+                               <a href='../pages/voertuig_bewerken.php?edit=" . $row['id_auto_model'] . "' class='btn btn-info bg-light text-dark '>BEWERKEN</a>
                             </td> 
                         
                         </tr>";

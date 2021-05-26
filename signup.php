@@ -23,7 +23,7 @@ sign_up($conn);
 
         <h3 class="mb-3 border-bottom border-3 border-secondery "></h3>
 
-        <form class="p-5 mt-3 mb-3 col-sm-6 col-md-8 col-lg-6 col-xl-3 text-light rounded" method="post"   style="background-color: #1D334A">
+        <form class="p-5 mt-3 mb-3 col-sm-6 col-md-8 col-lg-6 col-xl-3 shadow-lg rounded  text-dark" method="post">
 
             <h3 class="mb-3">ACCOUNT AANMAKEN</h3>
 
@@ -67,7 +67,7 @@ sign_up($conn);
                 <input type="tel" name="tel" class="form-control" placeholder="Telefoon"  >
             </div>
 
-            <button type="submit" name="submit" class="btn  mt-3 bg-light">ACCOUNT MAKEN</button>
+            <button type="submit" name="submit" class="btn btn-secondary mb-3 mt-3 bg-light text-dark">ACCOUNT MAKEN</button>
 
         </form>
 

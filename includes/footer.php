@@ -1,4 +1,4 @@
-<footer class="text-center text-white p-5 " style="background-color: #0B1F33">
+<footer class=" shadow-lg rounded text-center text-dark bg-secondary p-5 ">
 
 </footer>
 

@@ -25,7 +25,7 @@ $klant = check_login_klant($conn);
 
 <?php if ($klant || $medewerker): ?>
     <!--Logged in navbar-->
-    <nav class="navbar navbar-dark  navbar-expand-lg container-fluid p-4" style="background-color: #0E294B; ">
+    <nav class="shadow-lg rounded navbar navbar-expand-lg navbar-light bg-light container-fluid p-4 text-color">
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon "></span>
@@ -101,7 +101,7 @@ $klant = check_login_klant($conn);
 
                         <h3 class="mb-3 border-bottom border-3 border-secondery "></h3>
 
-                        <form class="p-5 mt-3 mb-3 text-light rounded" method="post"  style="background-color: #0E294B">
+                        <form class="p-5 mt-3 mb-3 text-light shadow-lg rounded text-dark" method="post">
 
                             <h3 class="mb-3">GEGEVENS</h3>
 
@@ -114,7 +114,7 @@ $klant = check_login_klant($conn);
                                 <input class="form-check-input"  type="checkbox" onclick="showPassword()">
                             </div>
 
-                            <button type="submit" name="inloggegevens" class="btn mt-3 bg-light">OPSLAAN</button>
+                            <button type="submit" name="inloggegevens" class="btn btn-secondary mb-3 mt-3 bg-light text-dark">OPSLAAN</button>
 
                         </form>
 
@@ -126,7 +126,7 @@ $klant = check_login_klant($conn);
 
                         <h3 class="mb-3 border-bottom border-3 border-secondery "></h3>
 
-                        <form class="p-5 mt-3 mb-3 text-light rounded" method="post"  style="background-color: #0E294B">
+                        <form class="p-5 mt-3 mb-3 text-light shadow-lg rounded  text-dark" method="post">
 
                             <h3 class="mb-3">ACCOUNT</h3>
 
@@ -162,7 +162,7 @@ $klant = check_login_klant($conn);
                                 <input type="tel" name="tel" class="form-control" placeholder="Tel" value="<?php echo "" .$klant['klant_tel']?>">
                             </div>
 
-                            <button type="submit" name="mijn_gegevens" class="btn mt-3 bg-light"  >OPSLAAN</button>
+                            <button type="submit" name="mijn_gegevens" class="btn btn-secondary mb-3 mt-3 bg-light text-dark"  >OPSLAAN</button>
 
                         </form>
 
@@ -174,7 +174,7 @@ $klant = check_login_klant($conn);
 
                         <h3 class="mb-3 border-bottom border-3 border-secondery "></h3>
 
-                        <form class="p-5 mt-3 mb-3 text-light rounded" method="post"  style="background-color: #0E294B">
+                        <form class="p-5 mt-3 mb-3 text-light shadow-lg rounded  text-dark" method="post">
 
                             <h3 class="mb-3">ROL</h3>
 
@@ -203,7 +203,7 @@ $klant = check_login_klant($conn);
 
                         <h3 class="mb-3 border-bottom border-3 border-secondery "></h3>
 
-                        <form class="p-5 mt-3 mb-3 text-light rounded" method="post"  style="background-color: #0E294B">
+                        <form class="p-5 mt-3 mb-3 text-light shadow-lg rounded  text-dark" method="post"  >
 
                             <h3 class="mb-3">GEGEVENS</h3>
 
@@ -216,7 +216,7 @@ $klant = check_login_klant($conn);
                                 <input class="form-check-input"  type="checkbox" onclick="showPassword()">
                             </div>
 
-                            <button type="submit" name="inloggegevens_medewerker" class="btn mt-3 bg-light">OPSLAAN</button>
+                            <button type="submit" name="inloggegevens_medewerker" class="btn btn-secondary mb-3 mt-3 bg-light text-dark">OPSLAAN</button>
 
                         </form>
 
@@ -228,7 +228,7 @@ $klant = check_login_klant($conn);
 
                         <h3 class="mb-3 border-bottom border-3 border-secondery "></h3>
 
-                        <form class="p-5 mt-3 mb-3 text-light rounded" method="post"  style="background-color: #0E294B">
+                        <form class="p-5 mt-3 mb-3 text-light shadow-lg rounded  text-dark" method="post">
 
                             <h3 class="mb-3">ACCOUNT</h3>
 
@@ -264,7 +264,7 @@ $klant = check_login_klant($conn);
                                 <input type="tel" name="tel" class="form-control" placeholder="Tel" value="<?php echo "" . $medewerker['medewerker_tel']?>">
                             </div>
 
-                            <button type="submit" name="mijn_gegevens_medewerker" class="btn mt-3 bg-light">OPSLAAN</button>
+                            <button type="submit" name="mijn_gegevens_medewerker" class="btn btn-secondary mb-3 mt-3 bg-light text-dark">OPSLAAN</button>
 
                         </form>
 
@@ -276,7 +276,7 @@ $klant = check_login_klant($conn);
 
                         <h3 class="mb-3 border-bottom border-3 border-secondery "></h3>
 
-                        <form class="p-5 mt-3 mb-3 text-light rounded" method="post"  style="background-color: #0E294B">
+                        <form class="p-5 mt-3 mb-3 text-light shadow-lg rounded  text-dark" method="post">
 
                             <h3 class="mb-3">ROL</h3>
 

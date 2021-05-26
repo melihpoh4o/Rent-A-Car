@@ -36,7 +36,7 @@ function admin_gebruiker_check($conn){
                             </td style='word-break:break-all;'>
                             
                             <td style='word-break:break-all;'>
-                               <a href='../pages/klant_goedkeuren.php?edit=" . $row['id_klant'] . "' class='text-decoration-none btn bg-success text-light '>VERSTUUR</a>
+                               <a href='../pages/klant_goedkeuren.php?edit=" . $row['id_klant'] . "' class='btn btn-success bg-light text-dark'>VERSTUUR</a>
                             </td> 
                             
                             <td style='word-break:break-all;'>
@@ -64,7 +64,7 @@ function admin_gebruiker_check($conn){
                             </td style='word-break:break-all;'>
                             
                             <td style='word-break:break-all;'>
-                               <a href='../pages/delete_medewerker.php?edit=" . $row['id_medewerker'] . "' class='text-decoration-none btn bg-danger text-light '>VERSTUUR</a>
+                               <a href='../pages/delete_medewerker.php?edit=" . $row['id_medewerker'] . "' class='btn btn-danger bg-light text-dark'>VERSTUUR</a>
                             </td> 
 
                         </tr>";
@@ -93,7 +93,7 @@ function admin_gebruiker_check($conn){
                             </td style='word-break:break-all;'> 
                             
                             <td style='word-break:break-all;'>
-                               <a href='../pages/klant_goedkeuren.php?edit=". $row['id_klant'] . "' class='text-decoration-none btn bg-success text-light '>VERSTUUR</a>
+                               <a href='../pages/klant_goedkeuren.php?edit=". $row['id_klant'] . "' class='btn btn-success bg-light text-dark'>VERSTUUR</a>
                             </td> 
                            
                         
@@ -121,7 +121,7 @@ function admin_gebruiker_check($conn){
                             </td style='word-break:break-all;'>
                             
                             <td style='word-break:break-all;'>
-                               <a href='../delete_medewerker.php?edit=" . $row['id_medewerker'] . "' class='text-decoration-none btn bg-danger text-light '>VERSTUUR</a>
+                               <a href='../delete_medewerker.php?edit=" . $row['id_medewerker'] . "' class='btn btn-danger bg-light text-dark'>VERSTUUR</a>
                             </td> 
                             
                         </tr>";

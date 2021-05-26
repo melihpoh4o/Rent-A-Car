@@ -2,33 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ea059298-b78b-4f54-96dd-b43615818bdd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/functions/zoek_voertuig.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Rent-A-Car.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Rent-A-Car.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/account.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/functions/admin_check.php" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/functions/show_cars.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/voertuig_view.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/contact.php" beforeDir="false" afterPath="$PROJECT_DIR$/contact.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/functions/admin_gebruiker_check.php" beforeDir="false" afterPath="$PROJECT_DIR$/functions/admin_gebruiker_check.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/functions/check_gebruiker_nav.php" beforeDir="false" afterPath="$PROJECT_DIR$/functions/check_gebruiker_nav.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/functions/check_login.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/functions/delete_medewerker.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/functions/klant_goedkeuren.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/functions/voertuig_toevoegen.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/image/joshua-koblin-eqW1MPinEV4-unsplash.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/image/peter-broomfield-m3m-lnR90uM-unsplash.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/image/stefan-rodriguez-2AovfzYV3rc-unsplash.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/db.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions/zoek_voertuig.php" beforeDir="false" afterPath="$PROJECT_DIR$/functions/zoek_voertuig.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/includes/footer.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/footer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/static_navbar.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/guest_navbar.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/guest_navbar.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/instellingen.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/functions.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/functions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/login/login.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/login/logout.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/login/signup.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/voertuigen.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/account.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/account.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/instellingen.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/instellingen.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/voertuig_bewerken.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/voertuig_bewerken.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/voertuig_toevoegen.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/voertuig_toevoegen.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/voertuigen.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/voertuigen.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/signup.php" beforeDir="false" afterPath="$PROJECT_DIR$/signup.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/voertuig_huren.php" beforeDir="false" afterPath="$PROJECT_DIR$/voertuig_huren.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,6 +27,13 @@
   </component>
   <component name="ComposerSettings">
     <execution />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -51,10 +48,17 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../rent-a-car-test" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
     <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\Rent-A-Car\includes" />
+    </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -65,17 +69,45 @@
       <option name="presentableId" value="Default" />
       <updated>1621972040175</updated>
       <workItem from="1621972041220" duration="286000" />
-      <workItem from="1622009619910" duration="1377000" />
+      <workItem from="1622009619910" duration="19969000" />
     </task>
+    <task id="LOCAL-00001" summary="navigatie door de site veranderd,&#10;medewerker kan nu auto's informatie en afbeelding bewerken,&#10;medewerker kan nu auto's verwijderen">
+      <created>1622023181081</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1622023181081</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="navigatie door de site veranderd,&#10;medewerker kan nu auto's informatie en afbeelding bewerken,&#10;medewerker kan nu auto's verwijderen" />
+    <option name="LAST_COMMIT_MESSAGE" value="navigatie door de site veranderd,&#10;medewerker kan nu auto's informatie en afbeelding bewerken,&#10;medewerker kan nu auto's verwijderen" />
+  </component>
   <component name="WindowStateProjectService">
+    <state x="584" y="87" key="CommitChangelistDialog2" timestamp="1622023180399">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="584" y="87" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1622023180399" />
     <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1622009625678">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1622009625678" />
+    <state x="794" y="443" key="NewPhpFileDialog" timestamp="1622044630524">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="794" y="443" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1622044630524" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1622023184689">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1622023184689" />
+    <state x="616" y="240" key="run.anything.popup" timestamp="1622034596752">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1622034596752" />
   </component>
 </project>

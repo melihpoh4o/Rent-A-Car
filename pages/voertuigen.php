@@ -22,7 +22,7 @@ $klant = check_login_klant($conn);
 
 <?php if ($klant || $medewerker): ?>
     <!--Logged in navbar-->
-    <nav class="navbar navbar-dark  navbar-expand-lg container-fluid p-4" style="background-color: #0E294B; ">
+    <nav class="shadow-lg rounded navbar navbar-expand-lg navbar-light bg-light container-fluid p-4 text-color">
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon "></span>
@@ -94,8 +94,8 @@ $klant = check_login_klant($conn);
             <div>
                 <form method="post" class="mb-3 mt-3 d-flex justify-content-center  ">
 
-                    <button type="submit" name="zoek_voertuigen" class="btn bg-primary text-white m-3 ">ZOEK VOERTUIGEN</button>
-                    <a href="voertuig_toevoegen.php" class="btn bg-primary text-white m-3">NIEUWE VOERTUIG TOEVOEGEN</a>
+                    <button type="submit" name="zoek_voertuigen" class="btn btn-primary bg-light text-dark m-3">ZOEK VOERTUIGEN</button>
+                    <a href="voertuig_toevoegen.php" class="btn btn-primary bg-light text-dark m-3">NIEUWE VOERTUIG TOEVOEGEN</a>
                 </form>
 
             </div>

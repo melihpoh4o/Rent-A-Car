@@ -21,7 +21,7 @@ $klant = check_login_klant($conn);
 
 <?php if ($medewerker['id_medewerker'] == 1): ?>
     <!--Logged in navbar-->
-    <nav class="navbar navbar-dark  navbar-expand-lg container-fluid p-4" style="background-color: #0E294B; ">
+    <nav class="shadow-lg rounded navbar navbar-expand-lg navbar-light bg-light container-fluid p-4 text-color">
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon "></span>
@@ -98,7 +98,7 @@ $klant = check_login_klant($conn);
                             <option name="3" value="3">MEDEWERKER</option>
                         </select>
 
-                        <button type="submit" name="button_gebruiker" class="btn bg-success text-white ">VERSTUUR</button>
+                        <button type="submit" name="button_gebruiker" class="btn btn-success mb-3 mt-3 bg-light text-dark">VERSTUUR</button>
                     </form>
                 </div>
 

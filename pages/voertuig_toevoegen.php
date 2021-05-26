@@ -80,7 +80,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 <?php if ($klant || $medewerker): ?>
     <!-- navbar -->
-    <nav class="navbar navbar-dark navbar-expand-lg container-fluid p-4" style="background-color: #0E294B; ">
+    <nav class="shadow-lg rounded navbar navbar-expand-lg navbar-light bg-light container-fluid p-4 text-color">
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon "></span>
@@ -145,7 +145,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 <div class="container">
 
-    <form class="p-5 mb-3 mt-3" method="post" enctype="multipart/form-data">
+    <form class="p-5 mb-3 mt-3 shadow-lg rounded" method="post" enctype="multipart/form-data">
         <h3 class="mb-3" >NIEUWE VOERTUIG TOEVOEGEN</h3>
 
         <div class="row mb-3">
@@ -215,7 +215,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             </div>
         </div>
 
-        <button type="submit" name="sumbit" class="btn bg-success text-white ">VERSTUUR</button>
+        <button type="submit" name="sumbit" class="btn btn-success bg-light text-dark ">VERSTUUR</button>
 
     </form>
 

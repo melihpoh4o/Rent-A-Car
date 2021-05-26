@@ -6,6 +6,7 @@ session_start();
 require 'functions/db.php';
 require 'functions/check_if_logged_in.php';
 require 'functions/check_gebruiker_nav.php';
+require 'functions/show_cars.php';
 
 //call functions
 $conn = getDB();
@@ -23,12 +24,11 @@ $klant = check_login_klant($conn);
 
 <?php if ($klant || $medewerker): ?>
 <!--Logged in navbar-->
-<nav class="navbar navbar-dark  navbar-expand-lg container-fluid p-4" style="background-color: #0E294B; ">
+<nav class="shadow-lg rounded navbar navbar-expand-lg navbar-light bg-light container-fluid p-4 text-color">
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon "></span>
     </button>
-
 
     <div class="collapse navbar-collapse" id="navbarNav" >
                 <!--navbar left-->
@@ -78,12 +78,11 @@ $klant = check_login_klant($conn);
 <?php require 'includes/guest_navbar.php'?>
 
 <?php endif; ?>
-
-
 <!--  Content van de pagina -->
-<div class="container-fluid">
+    <div class="row row-cols-1 row-cols-md-3 g-4 m-4 ">
+        <?php show_cars($conn); ?>
+    </div>
 
-</div>
 
 <!-- Voeg footer toe -->
 <?php require 'includes/footer.php' ?>
