@@ -2,22 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ea059298-b78b-4f54-96dd-b43615818bdd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/functions/show_cars.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/voertuig_view.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/functions/zoek_voor_voertuig.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/mijn_reserveringen.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/contact.php" beforeDir="false" afterPath="$PROJECT_DIR$/contact.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/functions/admin_gebruiker_check.php" beforeDir="false" afterPath="$PROJECT_DIR$/functions/admin_gebruiker_check.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/functions/zoek_voertuig.php" beforeDir="false" afterPath="$PROJECT_DIR$/functions/zoek_voertuig.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/footer.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/footer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/guest_navbar.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/guest_navbar.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions/show_cars.php" beforeDir="false" afterPath="$PROJECT_DIR$/functions/show_cars.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/login.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/account.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/account.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/instellingen.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/instellingen.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/voertuig_bewerken.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/voertuig_bewerken.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/voertuig_toevoegen.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/voertuig_toevoegen.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/voertuig_view.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/voertuig_view.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/voertuigen.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/voertuigen.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/signup.php" beforeDir="false" afterPath="$PROJECT_DIR$/signup.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/voertuig_huren.php" beforeDir="false" afterPath="$PROJECT_DIR$/voertuig_huren.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -69,7 +64,9 @@
       <option name="presentableId" value="Default" />
       <updated>1621972040175</updated>
       <workItem from="1621972041220" duration="286000" />
-      <workItem from="1622009619910" duration="19969000" />
+      <workItem from="1622009619910" duration="25212000" />
+      <workItem from="1622050635094" duration="3989000" />
+      <workItem from="1622098766871" duration="2918000" />
     </task>
     <task id="LOCAL-00001" summary="navigatie door de site veranderd,&#10;medewerker kan nu auto's informatie en afbeelding bewerken,&#10;medewerker kan nu auto's verwijderen">
       <created>1622023181081</created>
@@ -78,7 +75,14 @@
       <option name="project" value="LOCAL" />
       <updated>1622023181081</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="design van de site veranderd,&#10;je kan nu de wat duurde auto's zien op de homepage">
+      <created>1622044722833</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1622044722833</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -86,28 +90,33 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="navigatie door de site veranderd,&#10;medewerker kan nu auto's informatie en afbeelding bewerken,&#10;medewerker kan nu auto's verwijderen" />
-    <option name="LAST_COMMIT_MESSAGE" value="navigatie door de site veranderd,&#10;medewerker kan nu auto's informatie en afbeelding bewerken,&#10;medewerker kan nu auto's verwijderen" />
+    <MESSAGE value="design van de site veranderd,&#10;je kan nu de wat duurde auto's zien op de homepage" />
+    <option name="LAST_COMMIT_MESSAGE" value="design van de site veranderd,&#10;je kan nu de wat duurde auto's zien op de homepage" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="584" y="87" key="CommitChangelistDialog2" timestamp="1622023180399">
+    <state x="584" y="87" key="CommitChangelistDialog2" timestamp="1622044722239">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="584" y="87" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1622023180399" />
+    <state x="584" y="87" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1622044722239" />
     <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1622009625678">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1622009625678" />
-    <state x="794" y="443" key="NewPhpFileDialog" timestamp="1622044630524">
+    <state x="794" y="443" key="NewPhpFileDialog" timestamp="1622101599048">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="794" y="443" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1622044630524" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1622023184689">
+    <state x="794" y="443" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1622101599048" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1622044723974">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1622023184689" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1622044723974" />
     <state x="616" y="240" key="run.anything.popup" timestamp="1622034596752">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1622034596752" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1622048011672">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1622048011672" />
   </component>
 </project>

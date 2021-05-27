@@ -88,28 +88,6 @@ $klant = check_login_klant($conn);
 
 <div class="container-fluid p-4 mb-5 ">
 
-    <div class="container-fluid p-4 mb-5 ">
-
-        <div class="row">
-
-            <div>
-                <form method="post" class="mb-3 mt-3 d-flex justify-content-center  ">
-
-                    <button type="submit" name="zoek_voertuigen" class="btn btn-primary bg-light text-dark m-3">ZOEK VOERTUIGEN</button>
-                    <a href="voertuig_toevoegen.php" class="btn btn-primary bg-light text-dark m-3">NIEUWE VOERTUIG TOEVOEGEN</a>
-                </form>
-
-            </div>
-
-            <div class="col-md-12">
-                <?php zoek_voertuig($conn); ?>
-            </div>
-
-        </div>
-
-
-    </div>
-
 </div>
 
 <!-- Voeg footer toe -->

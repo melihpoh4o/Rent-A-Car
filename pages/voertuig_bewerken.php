@@ -148,7 +148,7 @@ $get_id = $_GET['edit'];
 
                     <div class="form-group mb-3">
                         <?php
-                        $countries = array("0", "10000", "25000", "50000", "75000", "100000" ,"125000", "150000", "200000");
+                        $countries = array("0", "10000", "25000", "50000", "75000", "100000" ,"125000", "150000", "200000","250000","300000");
                         echo "<select name='auto_model_kilometerstand' class='form-control' >";
                         foreach ($countries as $country) {
                             echo '<option value="'.$country.'"';
@@ -174,8 +174,8 @@ $get_id = $_GET['edit'];
                     $results = mysqli_query($conn, $query);
                     $user_data = mysqli_fetch_assoc($results);
                     ?>
-                    <div class="row mb-3 ">
-                        <input type="file" name="uploadfile" class="form-control-file mb-3 text-dark" id="exampleFormControlFile1" >
+                    <div class="row mb-3">
+                        <input type="file" name="uploadfile" class="form-control-file mb-3 text-dark" id="exampleFormControlFile1" required >
                             <?php if (empty($user_data['auto_img']) || is_null($user_data['auto_img'])): echo "";?>
                             <?php else: ?>
                             <img class="img-fluid" alt="Responsive image" src="<?php echo "../image/" .$auto['auto_img']; ?>">

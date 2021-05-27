@@ -14,7 +14,9 @@ function show_cars($conn){
                 <div class="card shadow-lg rounded">
                     <img height="50%" class='card-img-top' src='image/<?php echo $data['auto_img'] ?>'>
                     <div class="card-body bg-light">
-                        <h5 class="card-title text-dark"><?php echo $data['auto_model_merk'] . " " . $data['auto_model_model'] ?></h5>
+                        <a class="text-secondary shadow-lg rounded" href="pages/voertuig_view.php?view=<?php echo $data['id_auto_model']?>">
+                            <h5 class="card-title text-dark"><?php echo $data['auto_model_merk'] . " " . $data['auto_model_model'] ?></h5>
+                        </a>
                         <p class="card-text text-secondary" ><?php echo $data['auto_info']?></p>
                     </div>
                 </div>

@@ -6,6 +6,7 @@ session_start();
 require 'functions/db.php';
 require 'functions/check_if_logged_in.php';
 require 'functions/check_gebruiker_nav.php';
+require 'functions/zoek_voor_voertuig.php';
 
 //call functions
 $conn = getDB();
@@ -59,6 +60,9 @@ $klant = check_login_klant($conn);
                         </a>
                         <ul class="dropdown-menu " style="right: 0; left: auto">
                             <li><a class="dropdown-item" href="pages/account.php">Account</a></li>
+                            <?php if ($klant)
+                                echo "<li><a class='dropdown-item' href='./pages/mijn_reserveringen.php'>Reserveringen</a></li>";
+                            ?>
                             <?php if ($medewerker) check_gebruiker_nav($conn) ?>
                             <li><a class="dropdown-item" href="pages/logout.php">Uitloggen</a></li>
                         </ul>
@@ -79,6 +83,21 @@ $klant = check_login_klant($conn);
 
     <!--  Content van de pagina -->
     <div class="container-fluid">
+
+        <div class="d-flex justify-content-center mb-3 mt-3  ">
+            <form method="post" class="mb-3 mt-3  ">
+                <select name="voertuigen" class="form-select form-select-md mb-3" aria-label=".form-select-lg example">
+                    <option name="1" value="1">ZOEK VOOR PERSONEAUTO</option>
+                    <option name="2" value="2">ZOEK VOOR BESTELBUS</option>
+                </select>
+
+                <button type="submit" name="zoek_voor_voertuig" class="btn btn-success mb-3 mt-3 bg-light text-dark">VERSTUUR</button>
+            </form>
+        </div>
+
+        <div class="row row-cols-1 row-cols-md-3 g-4 m-4 ">
+            <?php zoek_voor_voertuig($conn); ?>
+        </div>
 
     </div>
 

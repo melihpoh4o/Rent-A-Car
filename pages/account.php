@@ -62,6 +62,7 @@ $klant = check_login_klant($conn);
                         <ul class="dropdown-menu " style="right: 0; left: auto">
                             <?php if ($klant):?>
                                 <li><a class="dropdown-item" href="../pages/account.php">Account</a></li>
+                                <li><a class="dropdown-item" href="../pages/mijn_reserveringen.php">Reserveringen</a></li>
                                 <li><a class="dropdown-item" href="../pages/logout.php">Uitloggen</a></li>
                             <?php elseif ($medewerker && $medewerker['id_medewerker'] != 1):?>
                                 <li><a class="dropdown-item" href="../pages/account.php">Account</a></li>
