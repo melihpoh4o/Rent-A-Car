@@ -131,11 +131,11 @@ $get_id = $_GET['edit'];
                     <div class="form-group mb-3">
                         <select name="auto_status" class="form-control" required>
                             <?php if ($auto['auto_status'] == 0) :  ?>
-                                <option value="0" selected>Beschikbaar</option>
-                                <option value="1">Verhuurd</option>
+                                <option value="0" selected>Beschikbaar  </option>
+                                <option value="1">Niet Beschikbaar</option>
                             <?php elseif ($auto['auto_status'] == 1) :  ?>
                                 <option value="0">Beschikbaar</option>
-                                <option value="1" selected>Verhuurd</option>
+                                <option value="1" selected>Niet Beschikbaar</option>
                             <?php endif; ?>
                         </select>
                     </div>

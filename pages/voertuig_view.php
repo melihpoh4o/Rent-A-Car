@@ -62,6 +62,7 @@ $get_id_model = $_GET['view'];
                         <ul class="dropdown-menu " style="right: 0; left: auto">
                             <?php if ($klant):?>
                                 <li><a class="dropdown-item" href="../pages/account.php">Account</a></li>
+                                <li><a class="dropdown-item" href="../pages/mijn_reserveringen.php">Reserveringen</a></li>
                                 <li><a class="dropdown-item" href="../pages/logout.php">Uitloggen</a></li>
                             <?php elseif ($medewerker && $medewerker['id_medewerker'] != 1):?>
                                 <li><a class="dropdown-item" href="../pages/account.php">Account</a></li>
@@ -128,57 +129,42 @@ $get_id_model = $_GET['view'];
 
 <?php endif; ?>
 
-<div class="mb-3 mt-3 d-flex justify-content-center  ">
+<div class="mb-3 mt-3 d-flex justify-content-center ">
     <?php
-        $query = "SELECT * 
+    $query = "SELECT * 
                   FROM auto
                   JOIN auto_model 
                   ON auto.id_auto_model = auto_model.id_auto_model
                   WHERE auto.id_auto_model = '$get_id_model'";
-        $results = mysqli_query($conn,$query);
-        $data = mysqli_fetch_assoc($results);
+    $results = mysqli_query($conn,$query);
+    $data = mysqli_fetch_assoc($results);
 
     ?>
-        <form method="post">
-            <div class="card  shadow-lg rounded" style="width: 50rem;">
-                <img class="card-img-top" src='../image/<?php echo $data['auto_img'] ?>' alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title"><?php echo $data['auto_model_merk'] . " " . $data['auto_model_model'] ?></h5>
-                    <p class="card-text"><?php echo $data['auto_info']  ?></p>
-                </div>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">Kenteken: <?php echo $data['auto_kenteken'] ?></li>
-                    <li class="list-group-item">Bowjaar: <?php echo $data['auto_model_bouwjaar'] ?></li>
-                    <li class="list-group-item">Kilometerstand: <?php echo $data['auto_model_kilometerstand'] ?></li>
-                    <li class="list-group-item">Prijs per dag: <?php echo "€" . $data['auto_model_prijs_per_dag']?></li>
-                    <?php
-                        if ($data['auto_soort'] == 0){
-                            echo '<li class="list-group-item">Type: Personeauto</li>';
-                        }
-                        else if ($data['auto_soort'] == 1){
-                            echo '<li class="list-group-item">Type: Bestelbus</li>';
-                        }
-                    ?>
-                    <button type="submit" name="voeg_auto_toe" class="btn btn-success bg-light text-dark m-3 ">VOEG VOERTUIG TOE</button>
-                    <?php
-                        if ($klant) {
-
-                            if (isset($_POST['voeg_auto_toe'])) {
-                                echo "Reserveer tijd" . date("Y.m.d");
-                            } else {
-                                echo "";
-                            }
-                        } else {
-                            echo "Log in als klant om auto te reserveren";
-                        }
-                    ?>
-
-                </ul>
+    <form method="post" class="d-flex justify-content-center m-2">
+        <div class=" card shadow-lg rounded col-md-6">
+            <img class="card-img-top img-responsive" src='../image/<?php echo $data['auto_img'] ?>' alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title"><?php echo $data['auto_model_merk'] . " " . $data['auto_model_model'] ?></h5>
+                <p class="card-text"><?php echo $data['auto_info']  ?></p>
             </div>
-        </form>
-    <?php
-    ?>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Kenteken: <?php echo $data['auto_kenteken'] ?></li>
+                <li class="list-group-item">Bowjaar: <?php echo $data['auto_model_bouwjaar'] ?></li>
+                <li class="list-group-item">Kilometerstand: <?php echo $data['auto_model_kilometerstand'] ?></li>
+                <li class="list-group-item">Prijs per dag: <?php echo "€" . $data['auto_model_prijs_per_dag']?></li>
+                <?php
+                if ($data['auto_soort'] == 0){
+                    echo '<li class="list-group-item">Type: Personeauto</li>';
+                }
+                else if ($data['auto_soort'] == 1){
+                    echo '<li class="list-group-item">Type: Bestelbus</li>';
+                }
+                ?>
+            </ul>
+        </div>
+    </form>
 </div>
+
 
 <!-- Voeg footer toe -->
 <?php require '../includes/footer.php' ?>

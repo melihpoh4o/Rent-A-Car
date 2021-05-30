@@ -82,23 +82,37 @@ $klant = check_login_klant($conn);
 
 
     <!--  Content van de pagina -->
-    <div class="container-fluid">
-
-        <div class="d-flex justify-content-center mb-3 mt-3  ">
+    <div class="container-fluid mt-3">
             <form method="post" class="mb-3 mt-3  ">
-                <select name="voertuigen" class="form-select form-select-md mb-3" aria-label=".form-select-lg example">
-                    <option name="1" value="1">ZOEK VOOR PERSONEAUTO</option>
-                    <option name="2" value="2">ZOEK VOOR BESTELBUS</option>
-                </select>
-
-                <button type="submit" name="zoek_voor_voertuig" class="btn btn-success mb-3 mt-3 bg-light text-dark">VERSTUUR</button>
+                <div class="form-group d-flex justify-content-center">
+                    <div class="col-6">
+                        <select name="voertuigen" class="form-select form-select-md mb-3" aria-label=".form-select-lg example">
+                            <option name="1" value="1">ZOEK VOOR PERSONEAUTO</option>
+                            <option name="2" value="2">ZOEK VOOR BESTELBUS</option>
+                        </select>
+                        <input class="form-control mb-3 " type="date" value="<?php echo date("Y-m-d") ?>" name="start_datum_voertuig">
+                        <input class="form-control mb-3 " type="date" value="<?php echo date("Y-m-d")?>" name="eind_datum_voertuig">
+                    </div>
+                </div>
+                <div class="form-group d-flex justify-content-center">
+                    <button type="submit" name="voeg_auto_toe" class="btn btn-success bg-light text-dark m-3  ">RESERVEER VOERTUIG</button>
+                </div>
             </form>
-        </div>
+    </div>
 
-        <div class="row row-cols-1 row-cols-md-3 g-4 m-4 ">
-            <?php zoek_voor_voertuig($conn); ?>
-        </div>
+    <div class="row row-cols-1 row-cols-md-3 g-4 m-4 ">
+        <?php
+        zoek_voor_voertuig($conn);
 
+        if (!$klant){
+            ?>
+            <div class="col-md-12 alert alert-warning text-center" role="alert">
+                <h5>Log in om een reservering te plaatsen</h5>
+            </div>
+            <?php
+        }
+
+        ?>
     </div>
 
     <!-- Voeg footer toe -->

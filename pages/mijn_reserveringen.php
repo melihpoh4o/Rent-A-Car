@@ -15,6 +15,7 @@ check_if_logged_in($conn);
 //set variables tp check if medewerker or klant is logged in
 $medewerker = check_login_medewerker($conn);
 $klant = check_login_klant($conn);
+
 ?>
 
 <!-- Voeg html header toe -->
@@ -87,7 +88,52 @@ $klant = check_login_klant($conn);
 <?php endif; ?>
 
 <div class="container-fluid p-4 mb-5 ">
+    <?php
+    $klant_id = $_SESSION['id_klant'];
+    $query = "SELECT * 
+                FROM auto
+                JOIN auto_model 
+                ON auto.id_auto_model = auto_model.id_auto_model
+                JOIN reservering ON reservering.id_auto = auto.id_auto
+                WHERE reservering.id_klant = $klant_id
+                  ";
+    $results = mysqli_query($conn,$query);
 
+    ?>
+    <?php
+    echo "<table class='table table-striped'><tr><th class='col'>Klant Naam</th><th scope='col'>Kenteken</th>
+                 <th scope='col'>Voertuig</th><th scope='col'>Bouwjaar</th><th scope='col'>Datum</th>
+                    <th>Prijs per dag</th></tr>";
+    while ($data = mysqli_fetch_assoc($results)) {
+        echo "<tr>
+                        <td style='word-break:break-all;'>
+                            " . $klant['klant_voornaam'] . " " . $klant['klant_achternaam'] . "
+                        </td>
+                                                
+                        <td style='word-break:break-all;'>
+                            " . $data["auto_kenteken"] . "
+                        </td>
+                                                
+                        <td style='word-break:break-all;'>
+                            " . $data["auto_model_merk"] . " " . $data["auto_model_model"] . "
+                        </td>
+                                                
+                        <td style='word-break:break-all;'>
+                             " . $data["auto_model_bouwjaar"] . "
+                        </td>
+                                                
+                        <td style='word-break:break-all;'>
+                            " . $data["reservering_start_datum"] . "/" . $data["reserveringe_eind_datum"] . "
+                        </td>
+                                                
+                        <td style='word-break:break-all;'>
+                            " . "€" . $data["auto_model_prijs_per_dag"] . "
+                        </td>
+                            
+                     </tr>";
+    }
+    echo "</table>";
+    ?>
 </div>
 
 <!-- Voeg footer toe -->
