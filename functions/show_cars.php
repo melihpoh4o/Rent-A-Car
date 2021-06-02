@@ -9,7 +9,7 @@ function show_cars($conn){
     $i = 1;
     while($data = mysqli_fetch_array($results)){
         if ($data['auto_status'] == 0){
-            if ($data['auto_model_prijs_per_dag'] >= 25 ){
+            if ($data['auto_model_prijs_per_dag'] >= 90 ){
                 ?>
                 <div class='card-group '>
                     <div class="card shadow-lg rounded">

@@ -1,5 +1,5 @@
 <?php
-
+require 'functions/factuurAanmaken.php';
 function check_login_gegevens($conn){
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST'){
@@ -30,6 +30,7 @@ function check_login_gegevens($conn){
 
                     if ($user_data['klant_wachtwoord'] === $wachtwoord && $user_data['klant_email'] === $email ){
                         $_SESSION['id_klant'] = $user_data['id_klant'];
+                        factuurAanmaken($conn);
                         header("Location: index.php");
                         die;
                     } else {

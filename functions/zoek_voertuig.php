@@ -2,7 +2,7 @@
 
 function zoek_voertuig($conn){
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        if (isset($_POST['zoek_voertuigen'])){
+        if (isset($_POST['zoek_voertuigen'])) {
             $query = "SELECT
                       id_auto,
                       auto.id_auto_model,
@@ -14,18 +14,18 @@ function zoek_voertuig($conn){
 	                  JOIN auto_model ON auto.id_auto_model = auto_model.id_auto_model;";
 
             $results = mysqli_query($conn, $query);
-
-            echo "<table class='table table-striped'><tr><th class='col'>Kenteken</th><th scope='col'>Model</th><th scope='col'>Bouwjaar</th>
+            if ($results && mysqli_num_rows($results) > 0) {
+                echo "<table class='table table-striped'><tr><th class='col'>Kenteken</th><th scope='col'>Model</th><th scope='col'>Bouwjaar</th>
                             <th>Kilometerstand</th><th></th></tr>";
-            while ($row = mysqli_fetch_assoc($results)) {
-                echo "<tr>
+                while ($row = mysqli_fetch_assoc($results)) {
+                    echo "<tr>
                             
                             <td style='word-break:break-all;'>
-                                " . $row["auto_kenteken"] ."
+                                " . $row["auto_kenteken"] . "
                             </td>
     
                             <td style='word-break:break-all;'>
-                                " . $row["auto_model_merk"] ."
+                                " . $row["auto_model_merk"] . "
                             </td>
                             
                             <td style='word-break:break-all;'>
@@ -41,8 +41,9 @@ function zoek_voertuig($conn){
                             </td> 
                         
                         </tr>";
+                }
+                echo "</table>";
             }
-            echo "</table>";
         }
     }
 }

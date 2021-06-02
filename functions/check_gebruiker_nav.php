@@ -10,6 +10,7 @@ function check_gebruiker_nav($conn){
     }
 
     if ($id_medewerker){
+        echo "<li><a class='dropdown-item' href='./pages/reservering_medewerker.php'>Reservering </a></li>";
         echo "<li><a class='dropdown-item' href='./pages/voertuigen.php'>Voertuigen</a></li>";
     }
 

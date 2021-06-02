@@ -12,9 +12,12 @@ require 'functions/show_cars.php';
 $conn = getDB();
 check_if_logged_in($conn);
 
+
 //set variables tp check if medewerker or klant is logged in
 $medewerker = check_login_medewerker($conn);
 $klant = check_login_klant($conn);
+
+
 
 
 ?>
@@ -60,7 +63,7 @@ $klant = check_login_klant($conn);
                     <ul class="dropdown-menu " style="right: 0; left: auto">
                         <li><a class="dropdown-item" href="pages/account.php">Account</a></li>
                         <?php if ($klant)
-                            echo "<li><a class='dropdown-item' href='./pages/mijn_reserveringen.php'>Reserveringen</a></li>";
+                            echo "<li><a class='dropdown-item' href='./pages/factuur.php'>Factuur</a></li>";
                         ?>
                         <?php if ($medewerker) check_gebruiker_nav($conn) ?>
 

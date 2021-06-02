@@ -61,7 +61,7 @@ $klant = check_login_klant($conn);
                         <ul class="dropdown-menu " style="right: 0; left: auto">
                             <li><a class="dropdown-item" href="pages/account.php">Account</a></li>
                             <?php if ($klant)
-                                echo "<li><a class='dropdown-item' href='./pages/mijn_reserveringen.php'>Reserveringen</a></li>";
+                                echo "<li><a class='dropdown-item' href='./pages/factuur.php'>Factuur</a></li>";
                             ?>
                             <?php if ($medewerker) check_gebruiker_nav($conn) ?>
                             <li><a class="dropdown-item" href="pages/logout.php">Uitloggen</a></li>

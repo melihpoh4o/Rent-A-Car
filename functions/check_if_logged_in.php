@@ -6,6 +6,8 @@ function check_if_logged_in($conn){
     function check_login_klant($conn){
         if (isset($_SESSION['id_klant'])){
             $id = $_SESSION['id_klant'];
+
+
             $query = "SELECT * FROM klant where id_klant = '$id' limit 1";
 
             $results = mysqli_query($conn,$query);
