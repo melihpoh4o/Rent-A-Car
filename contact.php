@@ -107,6 +107,7 @@ $klant = checkLoginKlant($conn);
                     ducimus hic illum molestiae porro? Cum deleniti enim laboriosam maxime praesentium reiciendis sequi.
                     Consequuntur magnam porro voluptatem? Earum.
                 </p>
+                <a href="http://melih-redzhebov.test.hkbo.nl/">Project Stage</a>
             </div>
             <div class="col-sm col-sm-4">
                 <div class="card">
