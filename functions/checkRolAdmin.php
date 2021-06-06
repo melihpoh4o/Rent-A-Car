@@ -1,7 +1,7 @@
 <?php
 
 //verander de Rol tekst als je ingelogd bent als admin
-function check_admin_rol($conn){
+function checkRolAdmin($conn){
 
     $id_medewerker = $_SESSION['id_medewerker'];
 

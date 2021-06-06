@@ -1,20 +1,22 @@
 <?php
 
+//session start
 session_start();
 
 //require functions
-require 'functions/db.php';
-require 'functions/check_if_logged_in.php';
-require 'functions/check_gebruiker_nav.php';
-require 'functions/zoek_voor_voertuig.php';
+require 'functions/getDB.php';
+require 'functions/checkIfLoggedIn.php';
+require 'functions/checkNavGebruiker.php';
+require 'functions/zoekVoorVoertuig.php';
 
 //call functions
 $conn = getDB();
-check_if_logged_in($conn);
+checkIfLoggedIn($conn);
 
 //set variables tp check if medewerker or klant is logged in
-$medewerker = check_login_medewerker($conn);
-$klant = check_login_klant($conn);
+$medewerker = checkLoginMedewerker($conn);
+$klant = checkLoginKlant($conn);
+
 
 
 ?>
@@ -39,7 +41,7 @@ $klant = check_login_klant($conn);
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link " href="voertuig_huren.php">AUTO HUREN</a>
+                    <a class="nav-link " href="reserveer.php">RESERVEER</a>
                 </li>
 
                 <li class="nav-item ">
@@ -59,11 +61,13 @@ $klant = check_login_klant($conn);
                             </svg>
                         </a>
                         <ul class="dropdown-menu " style="right: 0; left: auto">
+                            <!--check if klant is logged in-->
                             <li><a class="dropdown-item" href="pages/account.php">Account</a></li>
                             <?php if ($klant)
                                 echo "<li><a class='dropdown-item' href='./pages/factuur.php'>Factuur</a></li>";
                             ?>
-                            <?php if ($medewerker) check_gebruiker_nav($conn) ?>
+                            <!--call function nav-->
+                            <?php if ($medewerker) checkNavGebruiker($conn) ?>
                             <li><a class="dropdown-item" href="pages/logout.php">Uitloggen</a></li>
                         </ul>
                     </li>
@@ -88,25 +92,30 @@ $klant = check_login_klant($conn);
                     <div class="col-6">
                         <select name="voertuigen" class="form-select form-select-md mb-3" aria-label=".form-select-lg example">
                             <option name="1" value="1">ZOEK VOOR PERSONEAUTO</option>
-                            <option name="2" value="2">ZOEK VOOR BESTELBUS</option>
+                            <option name="2" value="2">ZOEK VOOR BESTELWAGEN</option>
                         </select>
                         <input class="form-control mb-3 " type="date" value="<?php echo date("Y-m-d") ?>" name="start_datum_voertuig">
                         <input class="form-control mb-3 " type="date" value="<?php echo date("Y-m-d")?>" name="eind_datum_voertuig">
                     </div>
                 </div>
                 <div class="form-group d-flex justify-content-center">
-                    <button type="submit" name="voeg_auto_toe" class="btn btn-success bg-light text-dark m-3  ">RESERVEER VOERTUIG</button>
+                    <button type="submit" name="voeg_auto_toe" class="btn btn-primary bg-light text-dark m-3  ">ZOEK VOERTUIG</button>
                 </div>
             </form>
     </div>
 
     <div class="row row-cols-1 row-cols-md-3 g-4 m-4 ">
         <?php
-        zoek_voor_voertuig($conn);
+        //check if klant is logged in
+        if ($klant){
+            //call function
+            zoekVoorVoertuig($conn);
+        }
 
+        //check if klant is not logged in
         if (!$klant){
             ?>
-            <div class="col-md-12 alert alert-warning text-center" role="alert">
+            <div class="col-md-12 shadow-lg alert alert-muted text-center" role="alert">
                 <h5>Log in om een reservering te plaatsen</h5>
             </div>
             <?php

@@ -1,3 +1,4 @@
+<!--guest navbar-->
 <nav class="shadow-lg rounded navbar navbar-expand-lg navbar-light bg-light container-fluid p-4 text-color">
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -12,7 +13,7 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link " href="voertuig_huren.php">AUTO HUREN</a>
+                <a class="nav-link " href="reserveer.php">RESERVEER</a>
             </li>
 
             <li class="nav-item">

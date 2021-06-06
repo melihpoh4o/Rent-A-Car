@@ -1,9 +1,13 @@
 <?php
-require '../functions/db.php';
+require '../functions/getDB.php';
 
+//get id_model
 $get_id = $_GET['edit'];
+
+//db function
 $conn = getDB();
 
+//change klant info to medewerker table
 $query_insert = "INSERT INTO medewerker 
             (medewerker_voornaam,
             medewerker_tussenvoegsel,
@@ -29,20 +33,17 @@ $query_insert = "INSERT INTO medewerker
           FROM klant             
           WHERE id_klant = '$get_id'";
 
+//delete factuur
 $query_delete_factuur = "DELETE FROM factuur WHERE id_klant = '$get_id'";
-$query_delete_reservering = "DELETE FROM reservering WHERE id_klant = '$get_id'";
+//delete klant
 $query_delete_klant = "DELETE FROM klant WHERE id_klant = '$get_id'";
 
+//call mysqli_query
+mysqli_query($conn, $query_insert);
+mysqli_query($conn,$query_delete_factuur);
+mysqli_query($conn,$query_delete_klant);
 
-
-if (mysqli_query($conn, $query_insert)){
-    mysqli_query($conn,$query_delete_factuur);
-    mysqli_query($conn,$query_delete_reservering);
-    mysqli_query($conn,$query_delete_klant);
-    header("Location: ../pages/instellingen.php");
-} else {
-    echo "Error record: " . mysqli_error($conn);
-}
-
+//redirect
+header("Location: ../pages/instellingen.php")
 
 ?>

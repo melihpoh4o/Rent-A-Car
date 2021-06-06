@@ -1,25 +1,31 @@
 <?php
 
+//start session
 session_start();
 
 //require functions
-require '../functions/db.php';
-require '../functions/check_if_logged_in.php';
-require '../functions/check_gebruiker_nav.php';
-require '../functions/voertuig_info_bewerken.php';
-require '../functions/voertuig_delete.php';
+require '../functions/getDB.php';
+require '../functions/checkIfLoggedIn.php';
+require '../functions/checkNavGebruiker.php';
+require '../functions/infoVoertuigBewerken.php';
+require '../functions/deleteVoertuig.php';
+require '../functions/navigatieGebruiker.php';
 
 //call functions
 $conn = getDB();
-check_if_logged_in($conn);
+checkIfLoggedIn($conn);
 
 //set variables tp check if medewerker or klant is logged in
-$medewerker = check_login_medewerker($conn);
-$klant = check_login_klant($conn);
+$medewerker = checkLoginMedewerker($conn);
+$klant = checkLoginKlant($conn);
 
-//set
-$auto = voertuig_info_bewerken($conn);
-delete_voertuig($conn);
+//set car variable
+$auto = infoVoertuigBewerken($conn);
+
+//call delete car function
+deleteVoertuig($conn);
+
+// get_id from auto_model
 $get_id = $_GET['edit'];
 
 
@@ -44,7 +50,7 @@ $get_id = $_GET['edit'];
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link " href="../voertuig_huren.php">AUTO HUREN</a>
+                    <a class="nav-link " href="../reserveer.php">RESERVEER</a>
                 </li>
 
                 <li class="nav-item ">
@@ -64,13 +70,8 @@ $get_id = $_GET['edit'];
                             </svg>
                         </a>
                         <ul class="dropdown-menu " style="right: 0; left: auto">
-                            <li><a class="dropdown-item" href="../pages/account.php">Account</a></li>
-                            <?php if ($klant) check_klant_gebruiker_nav($conn) ?>
-                            <?php if ($_SESSION['id_medewerker'] == 1) : ?>
-                                <?php echo "<li><a class='dropdown-item' href='../pages/instellingen.php'>Instellingen</a></li>"; ?>
-                                <?php echo "<li><a class='dropdown-item' href='../pages/voertuigen.php'>Voertuigen</a></li>"; ?>
-                            <?php endif; ?>
-                            <li><a class="dropdown-item" href="../pages/logout.php">Uitloggen</a></li>
+                            <!--call function-->
+                            <?php navigatieGebruiker($conn) ?>
                         </ul>
                     </li>
                 </ul>
@@ -147,15 +148,16 @@ $get_id = $_GET['edit'];
                     </div>
 
                     <div class="form-group mb-3">
+                        <!--options for kilometerstand-->
                         <?php
-                        $countries = array("0", "10000", "25000", "50000", "75000", "100000" ,"125000", "150000", "200000","250000","300000");
+                        $kilometerstand = array("0", "10000", "25000", "50000", "75000", "100000" ,"125000", "150000", "200000","250000","300000");
                         echo "<select name='auto_model_kilometerstand' class='form-control' >";
-                        foreach ($countries as $country) {
-                            echo '<option value="'.$country.'"';
-                            if ($country == $auto["auto_model_kilometerstand"]) {
+                        foreach ($kilometerstand as $kilometer) {
+                            echo '<option value="'.$kilometer.'"';
+                            if ($kilometer == $auto["auto_model_kilometerstand"]) {
                                 echo 'selected="selected"';
                             }
-                            echo '>'.$country.'</option>';;
+                            echo '>'.$kilometer.'</option>';;
                         }
                         echo "</select>";
                         ?>
@@ -170,19 +172,20 @@ $get_id = $_GET['edit'];
                         </div>
                     </div>
                     <?php
+                    //query
                     $query = "SELECT * FROM auto WHERE id_auto_model = '$get_id'";
                     $results = mysqli_query($conn, $query);
                     $user_data = mysqli_fetch_assoc($results);
                     ?>
                     <div class="row mb-3">
-                        <input type="file" name="uploadfile" class="form-control-file mb-3 text-dark" id="exampleFormControlFile1" required >
+                        <input type="file" name="uploadfile" class="form-control-file mb-3 text-dark">
+                            <!--load image only if image is uploaded-->
                             <?php if (empty($user_data['auto_img']) || is_null($user_data['auto_img'])): echo "";?>
                             <?php else: ?>
                             <img class="img-fluid" alt="Responsive image" src="<?php echo "../image/" .$auto['auto_img']; ?>">
                             <?php endif; ?>
                     </div>
-
-                    <button type="submit" name="opslaan" class="btn btn-success bg-light text-dark ">OPSLAAN</button>
+                    <button type="submit" name="opslaan" class="btn btn-secondary bg-light text-dark ">OPSLAAN</button>
                     <button type="submit" name="delete" class="btn btn-danger bg-light text-dark ">VERWIJDEREN</button>
 
                 </form>

@@ -1,20 +1,22 @@
 <?php
+//start session
 session_start();
 
 //require functions
-require '../functions/db.php';
-require '../functions/check_if_logged_in.php';
-require '../functions/check_gebruiker_nav.php';
-require '../functions/admin_gebruiker_check.php';
-require '../functions/zoek_voertuig.php';
+require '../functions/getDB.php';
+require '../functions/checkIfLoggedIn.php';
+require '../functions/checkNavGebruiker.php';
+require '../functions/adminCheckGebruiker.php';
+require '../functions/zoekVoertuig.php';
+require '../functions/navigatieGebruiker.php';
 
 //call functions
 $conn = getDB();
-check_if_logged_in($conn);
+checkIfLoggedIn($conn);
 
 //set variables tp check if medewerker or klant is logged in
-$medewerker = check_login_medewerker($conn);
-$klant = check_login_klant($conn);
+$medewerker = checkLoginMedewerker($conn);
+$klant = checkLoginKlant($conn);
 
 ?>
 
@@ -38,7 +40,7 @@ $klant = check_login_klant($conn);
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link " href="../voertuig_huren.php">AUTO HUREN</a>
+                    <a class="nav-link " href="../reserveer.php">RESERVEER</a>
                 </li>
 
                 <li class="nav-item ">
@@ -58,22 +60,8 @@ $klant = check_login_klant($conn);
                             </svg>
                         </a>
                         <ul class="dropdown-menu " style="right: 0; left: auto">
-                            <?php if ($klant):?>
-                                <li><a class="dropdown-item" href="../pages/account.php">Account</a></li>
-                                <li><a class="dropdown-item" href="../pages/factuur.php">Factuur</a></li>
-                                <li><a class="dropdown-item" href="../pages/logout.php">Uitloggen</a></li>
-                            <?php elseif ($medewerker && $medewerker['id_medewerker'] != 1):?>
-                                <li><a class="dropdown-item" href="../pages/account.php">Account</a></li>
-                                <li><a class="dropdown-item" href="../pages/reservering_medewerker.php">Reserveringen</a></li>
-                                <li><a class="dropdown-item" href="../pages/voertuigen.php">Voertuigen</a></li>
-                                <li><a class="dropdown-item" href="../pages/logout.php">Uitloggen</a></li>
-                            <?php elseif ($medewerker['id_medewerker'] == 1): ?>
-                                <li><a class="dropdown-item" href="../pages/account.php">Account</a></li>
-                                <li><a class="dropdown-item" href="../pages/instellingen.php">Instellingen</a></li>
-                                <li><a class="dropdown-item" href="../pages/reservering_medewerker.php">Reserveringen</a></li>
-                                <li><a class="dropdown-item" href="../pages/voertuigen.php">Voertuigen</a></li>
-                                <li><a class="dropdown-item" href="../pages/logout.php">Uitloggen</a></li>
-                            <?php endif; ?>
+                            <!--call function-->
+                            <?php navigatieGebruiker($conn) ?>
                         </ul>
                     </li>
                 </ul>
@@ -89,12 +77,13 @@ $klant = check_login_klant($conn);
 
 <?php endif; ?>
 
-<div class="container-fluid p-4 mb-5 ">
-
+<div class="container-fluid p-4 mb-5" id="invoice">
     <?php
+        // get id_klant and factuur from session
         $klant_id = $_SESSION['id_klant'];
         $last_id = $_SESSION['id_factuur'];
 
+        //query to select factuur
         $query_select_factuur = "SELECT * FROM auto_model
                                  JOIN auto ON auto.id_auto_model = auto_model.id_auto_model
                                  JOIN reservering ON auto.id_auto = reservering.id_auto
@@ -104,31 +93,24 @@ $klant = check_login_klant($conn);
         $result_select_factuur = mysqli_query($conn,$query_select_factuur);
         $data = mysqli_fetch_assoc($result_select_factuur);
 
-        $query_select_bedrag = "SELECT 
-                                ROUND(SUM(datediff(reserveringe_eind_datum + 1, reservering_start_datum) * auto_model_prijs_per_dag  * 0.21), 2) AS btw,
-                                ROUND(SUM(datediff(reserveringe_eind_datum + 1, reservering_start_datum) * auto_model_prijs_per_dag  * 1.21), 2) AS Totaal
-                                FROM reservering 
-                                JOIN auto ON
-                                reservering.id_auto = auto.id_auto
-                                JOIN auto_model ON auto_model.id_auto_model = auto.id_auto_model";
-        $results_select_bedrag = mysqli_query($conn, $query_select_bedrag);
-        $data_select_bedrag = mysqli_fetch_assoc($results_select_bedrag);
-
+        //query to select reservering
         $query_select_reservering = "SELECT
-                                        auto.auto_kenteken,
-                                        auto_model.auto_model_merk,
-                                        auto_model.auto_model_model,
-                                        reservering.reservering_start_datum,
-                                        reservering.reserveringe_eind_datum,
-                                        auto_model.auto_model_prijs_per_dag,
-                                        datediff(reserveringe_eind_datum + 1, reservering_start_datum) * auto_model_prijs_per_dag as total
-                                        FROM reservering 
-                                        JOIN auto ON
-                                        reservering.id_auto = auto.id_auto
-                                        JOIN auto_model ON auto_model.id_auto_model = auto.id_auto_model
-                                        WHERE id_factuur = '$last_id'";
+                                     auto.id_auto,
+                                     auto.auto_kenteken,
+                                     auto_model.auto_model_merk,
+                                     auto_model.auto_model_model,
+                                     reservering.reservering_start_datum,
+                                     reservering.reserveringe_eind_datum,
+                                     auto_model.auto_model_prijs_per_dag,
+                                     datediff(reserveringe_eind_datum + 1, reservering_start_datum) * auto_model_prijs_per_dag as total
+                                     FROM reservering 
+                                     JOIN auto ON
+                                     reservering.id_auto = auto.id_auto
+                                     JOIN auto_model ON auto_model.id_auto_model = auto.id_auto_model
+                                     WHERE id_factuur = '$last_id'";
         $results_select_reservering = mysqli_query($conn, $query_select_reservering);
 
+        //set factuur and reservering data
         if ($result_select_factuur && mysqli_num_rows($result_select_factuur) > 0) {
             ?>
                 <div class="row">
@@ -164,10 +146,15 @@ $klant = check_login_klant($conn);
                 </div>
             <?php
 
-            echo "<h5 class='m-1 mb-3'>Reserveringen</h5><table class='table table-hover table-sm'><thead><tr><th scope='col'>Kenteken</th><th scope='col'>Merk</th>
+            //set table data
+            echo "<h5 class='m-1 mb-3'>Reserveringen</h5><div class='table-responsive'>
+                   <table class='table table-hover table-lg'><thead><tr><th scope='col'>Kenteken</th><th scope='col'>Merk</th>
                    <th scope='col'>Model</th><th scope='col'>Datum</th>
                    <th scope='col'>Prijs per dag</th><th scope='col'>Totaal</th></tr></thead>";
             while ($data = mysqli_fetch_assoc($results_select_reservering)) {
+                //change date format
+                $start_date = date("d-m-Y", strtotime($data["reservering_start_datum"]));
+                $eind_date = date("d-m-Y", strtotime($data["reserveringe_eind_datum"]));
                 echo "<tr>
                                 
                                 <td>
@@ -183,7 +170,7 @@ $klant = check_login_klant($conn);
                                 </td>
                             
                                 <td s>
-                                    " . $data["reservering_start_datum"] . "/" . $data["reserveringe_eind_datum"] . "
+                                    " . $start_date . "/" . $eind_date . "
                                 </td>
                                                         
                                 <td  >
@@ -198,13 +185,41 @@ $klant = check_login_klant($conn);
         
                              </tr>";
             }
+
+            //select price
+            $query_select_reservering = "SELECT
+                                         auto.id_auto,
+                                         auto.auto_kenteken,
+                                         auto_model.auto_model_merk,
+                                         auto_model.auto_model_model,
+                                         reservering.reservering_start_datum,
+                                         reservering.reserveringe_eind_datum,
+                                         auto_model.auto_model_prijs_per_dag,
+                                         ROUND((datediff(reserveringe_eind_datum + 1, reservering_start_datum) * auto_model_prijs_per_dag /100 * 21), 2) as Btw,
+                                         ROUND((datediff(reserveringe_eind_datum + 1, reservering_start_datum) * auto_model_prijs_per_dag), 2) as total
+                                         FROM reservering 
+                                         JOIN auto ON
+                                         reservering.id_auto = auto.id_auto
+                                         JOIN auto_model ON auto_model.id_auto_model = auto.id_auto_model
+                                         WHERE id_factuur = '$last_id'";
+
+            //calculate btw and total price
+            $results_select_reservering = mysqli_query($conn, $query_select_reservering);
+            $btw = 0;
+            $total_price = 0;
+            while ($data_auto = mysqli_fetch_assoc($results_select_reservering)){
+                $btw = $btw + $data_auto['Btw'];
+                $total_price = $total_price + $data_auto['total'] + $data_auto['Btw'];
+            }
+
+            //print btw and total price
             echo "<tr class='col'>
-                   <td></td><td></td><td></td><td></td><td >Btw</td><td >€ " . $data_select_bedrag['btw'] . "</td>
+                   <td></td><td></td><td></td><td></td><td >Btw</td><td >€ " . number_format($btw,2) . "</td>
                   </tr><tr class='col'>
-                   <td></td><td></td><td></td><td></td><td>Totaal te betalen</td><td>€ " . $data_select_bedrag['Totaal'] . "</td>
+                   <td></td><td></td><td></td><td></td><td>Totaal te betalen</td><td>€ " . number_format($total_price,2) . "</td>
                   </tr>";
 
-            echo "</table>";
+            echo "</table></div>";
 
             echo "<div class='col-md-12'>
                     <p>Betalingen dienen plaats te vinden veertien dagen voor de aanvang van de gereserveerde periode
@@ -217,10 +232,6 @@ $klant = check_login_klant($conn);
         }
     ?>
 
-
-
-
 </div>
-
 <!-- Voeg footer toe -->
 <?php require '../includes/footer.php' ?>

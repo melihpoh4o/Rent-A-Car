@@ -1,8 +1,8 @@
 <?php
-function sign_up($conn){
+//Registreer als klant
+function signUp($conn){
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST'){
-
         $voornaam = $_POST['voornaam'];
         $tussenvoegsel = $_POST['tussenvoegsel'];
         $achternaam = $_POST['achternaam'];
@@ -16,15 +16,26 @@ function sign_up($conn){
 
         $query_email = "SELECT klant_email from klant WHERE klant_email = '$email'";
         $results = mysqli_query($conn,$query_email);
+        $data = mysqli_fetch_assoc($results);
 
         if(!is_numeric($voornaam) && !is_numeric($achternaam) ) {
 
-            if (mysqli_num_rows($results) > 0) {
-                echo "E-mailadres is al in gebruik";
+            if (mysqli_num_rows($results) > 0){
+                if ($email == $data['klant_email']) {
+                    ?>
+                    <div class="alert alert-warning" role="alert">
+                        <h6>*E-mailadres is al in gebruik</h6>
+                    </div>
+                    <?php
+                }
             }
 
             if (!is_numeric($tel)){
-                echo "Telefoonnummer  mag alleen van nummers bestaan";
+                ?>
+                <div class="alert alert-warning" role="alert">
+                    <h6>*Telefoonnummer  mag alleen van cijfers bestaan</h6>
+                </div>
+                <?php
             }
 
             else {
@@ -41,7 +52,11 @@ function sign_up($conn){
         }
 
         else {
-            echo "Voer een geldige informatie in";
+            ?>
+            <div class="alert alert-warning" role="alert">
+            <h6>*Voer een geldige informatie in</h6>
+            </div>
+            <?php
         }
 
     }

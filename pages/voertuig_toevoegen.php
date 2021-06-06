@@ -1,24 +1,27 @@
 <?php
 
+//session_start
 session_start();
 
-require '../functions/db.php';
-require '../functions/check_if_logged_in.php';
-require '../functions/check_gebruiker_nav.php';
+require '../functions/getDB.php';
+require '../functions/checkIfLoggedIn.php';
+require '../functions/checkNavGebruiker.php';
+require '../functions/navigatieGebruiker.php';
 
 $conn = getDB();
 
-check_if_logged_in($conn);
-$medewerker = check_login_medewerker($conn);
-$klant = check_login_klant($conn);
+checkIfLoggedIn($conn);
+$medewerker = checkLoginMedewerker($conn);
+$klant = checkLoginKlant($conn);
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
+        //set img data
         $auto_img = $_FILES["uploadfile"]["name"];
         $tempname = $_FILES["uploadfile"]["tmp_name"];
         $folder = "../image/".$auto_img;
 
-
+        //get POST data
         $merk = $_POST['merk'];
         $model = $_POST['model'];
         $bouwjaar = $_POST['bouwjaar'];
@@ -29,6 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $status = $_POST['status'];
         $info = $_POST['info'];
 
+        //insert data into auto and auto_model tabel
         if (is_numeric($bouwjaar) || is_numeric($kilometerstand) || is_numeric($prijs)) {
 
             $query_auto_model = "INSERT INTO auto_model (auto_model_merk,auto_model_model,
@@ -46,20 +50,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             }
         }
 
-        // Now let's move the uploaded image into the folder: image
+        // move the uploaded image into the folder: image
         if (move_uploaded_file($tempname, $folder))  {
             $msg = "Image uploaded successfully";
         }else{
             $msg = "Failed to upload image";
-        }
-
-        $result = mysqli_query($conn, "SELECT * FROM auto");
-        while($row = mysqli_fetch_array($result)){
-            ?>
-
-            <img class="img-fluid" alt="Responsive image" src="<?php echo "../image/" . $row['auto_img']; ?>">
-
-            <?php
         }
 
 }
@@ -95,11 +90,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link " href="#">AUTO HUREN</a>
+                    <a class="nav-link " href="../reserveer.php">RESERVEER</a>
                 </li>
 
                 <li class="nav-item ">
-                    <a class="nav-link " href="#">CONTACT</a>
+                    <a class="nav-link " href="../contact.php">CONTACT</a>
                 </li>
             </ul>
 
@@ -115,17 +110,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                             </svg>
                         </a>
                         <ul class="dropdown-menu " style="right: 0; left: auto">
-                            <li><a class="dropdown-item" href="account.php">Account</a></li>
-
-                            <?php if ($medewerker == 1 ):  ?>
-
-                                <li><a class="dropdown-item" href="instellingen.php">Instellingen</a></li>
-
-                            <?php endif; ?>
-
-                            <li><a class="dropdown-item" href="voertuigen.php">Voertuigen</a></li>
-
-                            <li><a class="dropdown-item" href="login/logout.php">Uitloggen</a></li>
+                            <!--call function-->
+                            <?php navigatieGebruiker($conn) ?>
                         </ul>
                     </li>
                 </ul>
@@ -174,6 +160,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <option value="100000">Kilometerstand 100.000</option>
                     <option value="150000" >Kilometerstand 150.000</option>
                     <option value="200000">Kilometerstand 200.000</option>
+                    <option value="250000">Kilometerstand 250.000</option>
+                    <option value="300000">Kilometerstand 300.000</option>
                 </select>
             </div>
         </div>
@@ -191,13 +179,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <div class="col">
                 <select name="wagens" class="form-control" >
                     <option value="0" selected>Personeauto</option>
-                    <option value="1">Bestelbus</option>
+                    <option value="1">Bestelwagens</option>
                 </select>
             </div>
             <div class="col">
                 <select name="status" id="inputState" class="form-control">
                     <option value="0" selected>Beschikbaar</option>
-                    <option value="1">Verhuurd</option>
+                    <option value="1">Niet Beschikbaar</option>
                 </select>
             </div>
         </div>
@@ -215,7 +203,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             </div>
         </div>
 
-        <button type="submit" name="sumbit" class="btn btn-success bg-light text-dark ">VERSTUUR</button>
+        <button type="submit" name="sumbit" class="btn btn-secondary bg-light text-dark ">VERSTUUR</button>
 
     </form>
 

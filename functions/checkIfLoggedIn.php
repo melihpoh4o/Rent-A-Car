@@ -1,9 +1,9 @@
 <?php
 
 //check of je nog ingelogd bent
-function check_if_logged_in($conn){
+function checkIfLoggedIn($conn){
 
-    function check_login_klant($conn){
+    function checkLoginKlant($conn){
         if (isset($_SESSION['id_klant'])){
             $id = $_SESSION['id_klant'];
 
@@ -19,7 +19,7 @@ function check_if_logged_in($conn){
         }
     }
 
-    function check_login_medewerker($conn){
+    function checkLoginMedewerker($conn){
         if (isset($_SESSION['id_medewerker'])){
             $id = $_SESSION['id_medewerker'];
             $query = "SELECT * FROM medewerker where id_medewerker = '$id' limit 1";

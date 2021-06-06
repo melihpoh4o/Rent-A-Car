@@ -1,5 +1,6 @@
 <?php
-function admin_gebruiker_check($conn){
+//check gebruikers admin
+function adminCheckGebruiker($conn){
 
     $id_medewerker = $_SESSION['id_medewerker'];
 
@@ -18,29 +19,29 @@ function admin_gebruiker_check($conn){
 
             if ($_POST['gebruikers'] == 1) {
 
-                echo "<table class='table table-striped'><tr><th class='col'>Rol</th><th scope='col'>Naam</th><th scope='col'>Email</th>
-                            <th>GOEDKEUREN</th><th>VERWIJDEREN</th></tr>";
+                echo "<div class='table-responsive'><table class='table table-hover table-md'><thead><tr><th class='col'>Rol</th><th scope='col'>Naam</th><th scope='col'>Email</th>
+                            <th>GOEDKEUREN</th><th>VERWIJDEREN</th></tr></thead>";
                 while ($row = mysqli_fetch_assoc($results)) {
                     echo "<tr>
                             
-                            <td style='word-break:break-all;'>
+                            <td>
                                 <p>Klant</p>
                             </td>
                             
-                            <td style='word-break:break-all;'>
+                            <td >
                                 " . $row["klant_voornaam"] . " " . $row["klant_achternaam"] ."
                             </td>
                             
-                            <td style='word-break:break-all;'>
+                            <td >
                                 " . $row["klant_email"] . "
-                            </td style='word-break:break-all;'>
+                            </td>
                             
-                            <td style='word-break:break-all;'>
+                            <td >
                                <a href='../pages/klant_goedkeuren.php?edit=" . $row['id_klant'] . "' class='btn btn-success bg-light text-dark'>VERSTUUR</a>
                             </td> 
                             
-                            <td style='word-break:break-all;'>
-                            </td style='word-break:break-all;'>
+                            <td>
+                            </td>
  
                         </tr>";
                 }
@@ -48,85 +49,85 @@ function admin_gebruiker_check($conn){
                 while ($row = mysqli_fetch_assoc($results_medewerker)) {
                     echo "<tr>
                             
-                            <td style='word-break:break-all;'>
+                            <td>
                                 <p>Medewerker</p>
                             </td>
                             
-                            <td style='word-break:break-all;'>
+                            <td>
                                 " . $row["medewerker_voornaam"] . " " . $row["medewerker_achternaam"] . "
                             </td>
                             
-                            <td style='word-break:break-all;'>
+                            <td>
                                 " . $row["medewerker_email"] . "
-                            </td style='word-break:break-all;'>
+                            </td>
                             
-                            <td style='word-break:break-all;'>
-                            </td style='word-break:break-all;'>
+                            <td>
+                            </td>
                             
-                            <td style='word-break:break-all;'>
+                            <td>
                                <a href='../pages/delete_medewerker.php?edit=" . $row['id_medewerker'] . "' class='btn btn-danger bg-light text-dark'>VERSTUUR</a>
                             </td> 
 
                         </tr>";
 
                 }
-                echo "</table>";
+                echo "</table></div>";
             }
 
 
             if ($_POST['gebruikers'] == 2) {
-                echo "<table class='table table-striped'><tr><th class='col'>Rol</th><th scope='col'>Naam</th><th scope='col'>Email</th>
-                            <th>GOEDKEUREN</th></tr>";
+                echo "<div class='table-responsive'><table class='table table-hover table-md'><thead><tr><th class='col'>Rol</th><th scope='col'>Naam</th><th scope='col'>Email</th>
+                            <th>GOEDKEUREN</th></tr></thead>";
                 while ($row = mysqli_fetch_assoc($results)) {
                     echo "<tr>
                             
-                            <td style='word-break:break-all;'>
+                            <td>
                                 <p>Klant</p>
                             </td>
     
-                            <td style='word-break:break-all;'>
+                            <td>
                                 " . $row["klant_voornaam"] . " " . $row["klant_achternaam"] . "
                             </td>
                             
-                            <td style='word-break:break-all;'>
+                            <td>
                                 " . $row["klant_email"] . "
-                            </td style='word-break:break-all;'> 
+                            </td> 
                             
-                            <td style='word-break:break-all;'>
+                            <td>
                                <a href='../pages/klant_goedkeuren.php?edit=". $row['id_klant'] . "' class='btn btn-success bg-light text-dark'>VERSTUUR</a>
                             </td> 
                            
                         
                         </tr>";
                 }
-                echo "</table>";
+                echo "</table></div>";
             }
 
             if ($_POST['gebruikers'] == 3) {
-                echo "<table class='table table-striped'><tr><th class='col'>Rol</th><th scope='col'>Naam</th><th scope='col'>Email</th>
-                            <th>VERWIJDEREN</th></tr>";
+                echo "<div class='table-responsive'><table class='table table-hover table-md'><thead><tr><th class='col'>Rol</th><th scope='col'>Naam</th><th scope='col'>Email</th>
+                            <th>VERWIJDEREN</th></tr></thead>";
                 while ($row = mysqli_fetch_assoc($results_medewerker)) {
                     echo "<tr>
                                 
-                            <td style='word-break:break-all;'>
+                            <td>
                                 <p>Medewerker</p>
                             </td>
                                 
-                            <td style='word-break:break-all;'>
+                            <td>
                                 " . $row["medewerker_voornaam"] . " " . $row["medewerker_achternaam"] . "
                             </td>
                             
-                            <td style='word-break:break-all;'>
+                            <td>
                                 " . $row["medewerker_email"] . "
-                            </td style='word-break:break-all;'>
+                            </td>
                             
-                            <td style='word-break:break-all;'>
-                               <a href='../delete_medewerker.php?edit=" . $row['id_medewerker'] . "' class='btn btn-danger bg-light text-dark'>VERSTUUR</a>
+                            <td>
+                               <a href='../pages/delete_medewerker.php?edit=" . $row['id_medewerker'] . "' class='btn btn-danger bg-light text-dark'>VERSTUUR</a>
                             </td> 
                             
                         </tr>";
                 }
-                echo "</table>";
+                echo "</table></div>";
 
 
             } else {

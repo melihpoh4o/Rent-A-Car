@@ -1,20 +1,23 @@
 <?php
+
+//start session
 session_start();
 
 //require functions
-require '../functions/db.php';
-require '../functions/check_if_logged_in.php';
-require '../functions/check_gebruiker_nav.php';
-require '../functions/admin_gebruiker_check.php';
-require '../functions/zoek_voertuig.php';
+require '../functions/getDB.php';
+require '../functions/checkIfLoggedIn.php';
+require '../functions/checkNavGebruiker.php';
+require '../functions/adminCheckGebruiker.php';
+require '../functions/zoekVoertuig.php';
+require '../functions/navigatieGebruiker.php';
 
 //call functions
 $conn = getDB();
-check_if_logged_in($conn);
+checkIfLoggedIn($conn);
 
 //set variables tp check if medewerker or klant is logged in
-$medewerker = check_login_medewerker($conn);
-$klant = check_login_klant($conn);
+$medewerker = checkLoginMedewerker($conn);
+$klant = checkLoginKlant($conn);
 
 ?>
 
@@ -38,7 +41,7 @@ $klant = check_login_klant($conn);
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link " href="../voertuig_huren.php">AUTO HUREN</a>
+                    <a class="nav-link " href="../reserveer.php">RESERVEER</a>
                 </li>
 
                 <li class="nav-item ">
@@ -58,22 +61,8 @@ $klant = check_login_klant($conn);
                             </svg>
                         </a>
                         <ul class="dropdown-menu " style="right: 0; left: auto">
-                            <?php if ($klant):?>
-                                <li><a class="dropdown-item" href="../pages/account.php">Account</a></li>
-                                <li><a class="dropdown-item" href="../pages/factuur.php">Factuur</a></li>
-                                <li><a class="dropdown-item" href="../pages/logout.php">Uitloggen</a></li>
-                            <?php elseif ($medewerker && $medewerker['id_medewerker'] != 1):?>
-                                <li><a class="dropdown-item" href="../pages/account.php">Account</a></li>
-                                <li><a class="dropdown-item" href="../pages/reservering_medewerker.php">Reserveringen</a></li>
-                                <li><a class="dropdown-item" href="../pages/voertuigen.php">Voertuigen</a></li>
-                                <li><a class="dropdown-item" href="../pages/logout.php">Uitloggen</a></li>
-                            <?php elseif ($medewerker['id_medewerker'] == 1): ?>
-                                <li><a class="dropdown-item" href="../pages/account.php">Account</a></li>
-                                <li><a class="dropdown-item" href="../pages/instellingen.php">Instellingen</a></li>
-                                <li><a class="dropdown-item" href="../pages/reservering_medewerker.php">Reserveringen</a></li>
-                                <li><a class="dropdown-item" href="../pages/voertuigen.php">Voertuigen</a></li>
-                                <li><a class="dropdown-item" href="../pages/logout.php">Uitloggen</a></li>
-                            <?php endif; ?>
+                            <!--call function nav-->
+                            <?php navigatieGebruiker($conn) ?>
                         </ul>
                     </li>
                 </ul>
@@ -97,7 +86,7 @@ $klant = check_login_klant($conn);
                     <input class="form-control" name="datum" type="date" value="<?php echo date("Y-m-d") ?>">
                 </div>
                 <div class="col">
-                    <button type="submit" name="verstuur" class="btn btn-success bg-light text-dark">VERSTUUR</button>
+                    <button type="submit" name="verstuur" class="btn btn-primary bg-light text-dark">VERSTUUR</button>
                 </div>
             </div>
         </form>
@@ -106,22 +95,25 @@ $klant = check_login_klant($conn);
 
 <div class="container-fluid p-4 mb-5  ">
 <?php
+    //check if button is submitted
     if (isset($_POST['verstuur'])){
-
+        //set time
         $time = strtotime($_POST['datum']);
 
         if ($time) {
             $dag_datum = date('d-m-Y', $time);
             ?>
             <div class="row">
-                <div class="col mb-1">
+                <div class="col mb-1 m-1">
                     <h5>Datum: <?php echo $dag_datum?></h5>
                 </div>
             </div>
             <?php
 
         }
-
+        ?>
+        <?php
+        //query for reservering check on start_date
         $time = strtotime($_POST['datum']);
         $dag_datum = date('Y-m-d', $time);
         $sql = "SELECT 
@@ -141,9 +133,10 @@ $klant = check_login_klant($conn);
 
         $results = mysqli_query($conn, $sql);
 
+        //print data into table if there are results
         if ($results && mysqli_num_rows($results) > 0){
-            echo "<table class='table table-striped'><tr><th class='col'>Naam klant</th><th scope='col'>Kenteken</th>
-                        <th scope='col'>Gereserveerde periode</th><th>Prijs per dag</th><th>Totaal</th></tr>";
+            echo "<div class='table-responsive'><table class='table table-hover table-lg'><thead><tr><th class='col'>Naam klant</th><th scope='col'>Kenteken</th>
+                        <th scope='col'>Gereserveerde periode</th><th>Prijs per dag</th><th>Totaal</th></tr></thead>";
             while ($row = mysqli_fetch_assoc($results)) {
                 $start_date = strtotime($row["reservering_start_datum"]);
                 $start_datum = date('d-m-Y', $start_date);
@@ -169,30 +162,30 @@ $klant = check_login_klant($conn);
 
                     echo "<tr>
                                 
-                                <td style='word-break:break-all;'>
+                                <td>
                                     " . $row["klant_voornaam"] . " " . $row["klant_achternaam"] . "
                                 </td>
         
-                                <td style='word-break:break-all;'>
+                                <td>
                                     " . $row["auto_kenteken"] . "
                                 </td>
                                 
-                                 <td style='word-break:break-all;'>
+                                <td>
                                     " . $start_datum . "/" . $eind_datum . "
                                 </td>
                                 
-                                <td style='word-break:break-all;'>
+                                <td>
                                     " . "€ " . $row["auto_model_prijs_per_dag"] . "
                                 </td>
                                 
-                                <td style='word-break:break-all;'>
+                                <td>
                                    " . "€ " . $data["total"] . "
                                 </td>
                                
                             </tr>";
                 }
             }
-            echo "</table>";
+            echo "</table></div>";
 
         }
     }

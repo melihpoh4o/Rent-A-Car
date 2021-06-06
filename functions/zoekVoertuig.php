@@ -1,6 +1,7 @@
 <?php
 
-function zoek_voertuig($conn){
+//zoek voor voertuig
+function zoekVoertuig($conn){
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if (isset($_POST['zoek_voertuigen'])) {
             $query = "SELECT
@@ -15,34 +16,34 @@ function zoek_voertuig($conn){
 
             $results = mysqli_query($conn, $query);
             if ($results && mysqli_num_rows($results) > 0) {
-                echo "<table class='table table-striped'><tr><th class='col'>Kenteken</th><th scope='col'>Model</th><th scope='col'>Bouwjaar</th>
-                            <th>Kilometerstand</th><th></th></tr>";
+                echo "<div class='table-responsive'><table class='table table-hover table-md'><thead><tr><th class='col'>Kenteken</th><th scope='col'>Model</th><th scope='col'>Bouwjaar</th>
+                            <th>Kilometerstand</th><th></th></tr></thead>";
                 while ($row = mysqli_fetch_assoc($results)) {
                     echo "<tr>
                             
-                            <td style='word-break:break-all;'>
+                            <td>
                                 " . $row["auto_kenteken"] . "
                             </td>
     
-                            <td style='word-break:break-all;'>
+                            <td>
                                 " . $row["auto_model_merk"] . "
                             </td>
                             
-                            <td style='word-break:break-all;'>
+                            <td >
                                 " . $row["auto_model_bouwjaar"] . "
-                            </td style='word-break:break-all;'> 
+                            </td> 
                             
-                            <td style='word-break:break-all;'>
+                            <td >
                                 " . $row["auto_model_kilometerstand"] . "
-                            </td style='word-break:break-all;'> 
+                            </td> 
                             
-                            <td style='word-break:break-all;'>
-                               <a href='../pages/voertuig_bewerken.php?edit=" . $row['id_auto_model'] . "' class='btn btn-info bg-light text-dark '>BEWERKEN</a>
+                            <td >
+                               <a href='../pages/voertuig_bewerken.php?edit=" . $row['id_auto_model'] . "' class='btn btn-secondary bg-light text-dark '>BEWERKEN</a>
                             </td> 
                         
                         </tr>";
                 }
-                echo "</table>";
+                echo "</table></div>";
             }
         }
     }

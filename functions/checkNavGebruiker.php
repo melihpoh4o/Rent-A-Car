@@ -1,7 +1,7 @@
 <?php
 
 //laat pagina alleen zien wanner ingelogd als admin
-function check_gebruiker_nav($conn){
+function checkNavGebruiker($conn){
 
     $id_medewerker = $_SESSION['id_medewerker'];
 

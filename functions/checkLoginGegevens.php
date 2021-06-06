@@ -1,6 +1,10 @@
 <?php
+
+//require function
 require 'functions/factuurAanmaken.php';
-function check_login_gegevens($conn){
+
+//check gegevens for login
+function checkLoginGegevens($conn){
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST'){
         $conn = getDB();
@@ -28,14 +32,18 @@ function check_login_gegevens($conn){
 
                     $user_data = mysqli_fetch_assoc($klant_result);
 
-                    if ($user_data['klant_wachtwoord'] === $wachtwoord && $user_data['klant_email'] === $email ){
+                    if ($user_data['klant_wachtwoord'] === $wachtwoord && $user_data['klant_email'] === $email){
                         $_SESSION['id_klant'] = $user_data['id_klant'];
                         factuurAanmaken($conn);
                         header("Location: index.php");
                         die;
                     } else {
-                        echo "<p class='text-danger p-1'>We hebben geen klant account gevonden met dat e-mailadres of wachtwoord. 
-                                Controleer of je ze juist hebt ingevoerd</p class='text-danger'>";
+                        ?>
+                        <div class="alert alert-warning" role="alert">
+                            <h6>*We hebben geen klant account gevonden met dat e-mailadres of wachtwoord.
+                                Controleer of je ze juist hebt ingevoerd</h6>
+                        </div>
+                        <?php
                     }
                 }
 
@@ -46,19 +54,27 @@ function check_login_gegevens($conn){
 
                     $user_data = mysqli_fetch_assoc($medewerker_result);
 
-                    if ($user_data['medewerker_wachtwoord'] === $wachtwoord && $user_data['medewerker_email'] === $email ){
+                    if ($user_data['medewerker_wachtwoord'] === $wachtwoord && $user_data['medewerker_email'] === $email){
                         $_SESSION['id_medewerker'] = $user_data['id_medewerker'];
                         header("Location: index.php");
                         die;
                     } else {
-                        echo "<p class='text-danger p-1'>We hebben geen medewerker account gevonden met dat e-mailadres of wachtwoord. 
-                                    Controleer of je ze juist hebt ingevoerd</p>";
+                        ?>
+                        <div class="alert alert-warning" role="alert">
+                            <h6>*We hebben geen medewerker account gevonden met dat e-mailadres of wachtwoord.
+                                Controleer of je ze juist hebt ingevoerd</h6>
+                        </div>
+                        <?php
                     }
                 }
 
             }
         } else{
-            echo "<p class='text-danger p-1'>Je hebt geen informatie ingevoerd</p>";
+            ?>
+            <div class="alert alert-warning" role="alert">
+                <h6>*Je hebt geen informatie ingevoerd</h6>
+            </div>
+            <?php
         }
 
 

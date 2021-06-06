@@ -1,23 +1,26 @@
 <?php
+//session start
 session_start();
 
 //require functions
-require '../functions/db.php';
-require '../functions/check_if_logged_in.php';
-require '../functions/check_gebruiker_nav.php';
-require '../functions/admin_gebruiker_check.php';
-require '../functions/zoek_voertuig.php';
+require '../functions/getDB.php';
+require '../functions/checkIfLoggedIn.php';
+require '../functions/checkNavGebruiker.php';
+require '../functions/adminCheckGebruiker.php';
+require '../functions/zoekVoertuig.php';
+require '../functions/navigatieGebruiker.php';
 
 //call functions
 $conn = getDB();
-check_if_logged_in($conn);
+checkIfLoggedIn($conn);
 
 //set variables tp check if medewerker or klant is logged in
-$medewerker = check_login_medewerker($conn);
-$klant = check_login_klant($conn);
+$medewerker = checkLoginMedewerker($conn);
+$klant = checkLoginKlant($conn);
 
-//set
+//get id_model from vehicle
 $get_id_model = $_GET['view'];
+
 ?>
 
 <!-- Voeg html header toe -->
@@ -40,7 +43,7 @@ $get_id_model = $_GET['view'];
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link " href="../voertuig_huren.php">AUTO HUREN</a>
+                    <a class="nav-link " href="../reserveer.php">RESERVEER</a>
                 </li>
 
                 <li class="nav-item ">
@@ -60,22 +63,8 @@ $get_id_model = $_GET['view'];
                             </svg>
                         </a>
                         <ul class="dropdown-menu " style="right: 0; left: auto">
-                            <?php if ($klant):?>
-                                <li><a class="dropdown-item" href="../pages/account.php">Account</a></li>
-                                <li><a class="dropdown-item" href="../pages/factuur.php">Factuur</a></li>
-                                <li><a class="dropdown-item" href="../pages/logout.php">Uitloggen</a></li>
-                            <?php elseif ($medewerker && $medewerker['id_medewerker'] != 1):?>
-                                <li><a class="dropdown-item" href="../pages/account.php">Account</a></li>
-                                <li><a class="dropdown-item" href="../pages/reservering_medewerker.php">Reserveringen</a></li>
-                                <li><a class="dropdown-item" href="../pages/voertuigen.php">Voertuigen</a></li>
-                                <li><a class="dropdown-item" href="../pages/logout.php">Uitloggen</a></li>
-                            <?php elseif ($medewerker['id_medewerker'] == 1): ?>
-                                <li><a class="dropdown-item" href="../pages/account.php">Account</a></li>
-                                <li><a class="dropdown-item" href="../pages/instellingen.php">Instellingen</a></li>
-                                <li><a class="dropdown-item" href="../pages/reservering_medewerker.php">Reserveringen</a></li>
-                                <li><a class="dropdown-item" href="../pages/voertuigen.php">Voertuigen</a></li>
-                                <li><a class="dropdown-item" href="../pages/logout.php">Uitloggen</a></li>
-                            <?php endif; ?>
+                            <!--call function-->
+                            <?php navigatieGebruiker($conn) ?>
                         </ul>
                     </li>
                 </ul>
@@ -102,7 +91,7 @@ $get_id_model = $_GET['view'];
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link " href="../voertuig_huren.php">AUTO HUREN</a>
+                    <a class="nav-link " href="../reserveer.php">RESERVEER</a>
                 </li>
 
                 <li class="nav-item">
@@ -133,6 +122,7 @@ $get_id_model = $_GET['view'];
 
 <div class="mb-3 mt-3 d-flex justify-content-center ">
     <?php
+    //mysql query
     $query = "SELECT * 
                   FROM auto
                   JOIN auto_model 
@@ -140,6 +130,10 @@ $get_id_model = $_GET['view'];
                   WHERE auto.id_auto_model = '$get_id_model'";
     $results = mysqli_query($conn,$query);
     $data = mysqli_fetch_assoc($results);
+
+    //get start_datum and eind_datum
+    $start_datum = $_GET['start_datum'];
+    $eind_datum = $_GET['eind_datum'];
 
     ?>
     <form method="post" class="d-flex justify-content-center m-2">
@@ -156,12 +150,40 @@ $get_id_model = $_GET['view'];
                 <li class="list-group-item">Prijs per dag: <?php echo "€" . $data['auto_model_prijs_per_dag']?></li>
                 <?php
                 if ($data['auto_soort'] == 0){
-                    echo '<li class="list-group-item">Type: Personeauto</li>';
+                    echo '<li class="list-group-item">Type: Personenauto</li>';
                 }
                 else if ($data['auto_soort'] == 1){
-                    echo '<li class="list-group-item">Type: Bestelbus</li>';
+                    echo '<li class="list-group-item">Type: Bestelwagen</li>';
                 }
                 ?>
+                <li class="list-group-item">
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-secondary bg-light text-dark col-md-12" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        VOERTUIG RESERVEREN
+                    </button>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Reservering</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Weet u zeker of u dit voertuig wilt reserveren van <?php echo " " .date("d-m-Y", strtotime($start_datum)). " Tot " . " " .date("d-m-Y", strtotime($eind_datum))?></p>
+                                </div>
+                                <div class="modal-footer">
+                                    <!--car into reservering-->
+                                    <a href=./insert_car.php?id_auto_model=<?php echo $get_id_model
+                                    ?>&start_datum=<?php echo $start_datum;?>&eind_datum=<?php echo $eind_datum?>
+                                       class="btn btn-primary bg-light text-dark p-2 m-3  ">VOERTUIG RESERVEREN</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </li>
             </ul>
         </div>
     </form>

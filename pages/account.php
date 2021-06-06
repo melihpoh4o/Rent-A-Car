@@ -1,22 +1,24 @@
 <?php
 
+//start session
 session_start();
 
 //require functions
-require '../functions/db.php';
-require '../functions/check_if_logged_in.php';
-require '../functions/update_gegevens.php';
-require '../functions/check_admin_rol.php';
-require '../functions/check_gebruiker_nav.php';
+require '../functions/getDB.php';
+require '../functions/checkIfLoggedIn.php';
+require '../functions/updateGegevens.php';
+require '../functions/checkRolAdmin.php';
+require '../functions/checkNavGebruiker.php';
+require '../functions/navigatieGebruiker.php';
 
 //call functions
 $conn = getDB();
-check_if_logged_in($conn);
-update_gegevens($conn);
+checkIfLoggedIn($conn);
+updateGegevens($conn);
 
 //set variables tp check if medewerker or klant is logged in
-$medewerker = check_login_medewerker($conn);
-$klant = check_login_klant($conn);
+$medewerker = checkLoginMedewerker($conn);
+$klant = checkLoginKlant($conn);
 
 ?>
 
@@ -40,7 +42,7 @@ $klant = check_login_klant($conn);
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link " href="../voertuig_huren.php">AUTO HUREN</a>
+                    <a class="nav-link " href="../reserveer.php">RESERVEER</a>
                 </li>
 
                 <li class="nav-item ">
@@ -60,22 +62,8 @@ $klant = check_login_klant($conn);
                             </svg>
                         </a>
                         <ul class="dropdown-menu " style="right: 0; left: auto">
-                            <?php if ($klant):?>
-                                <li><a class="dropdown-item" href="../pages/account.php">Account</a></li>
-                                <li><a class="dropdown-item" href="../pages/factuur.php">Factuur</a></li>
-                                <li><a class="dropdown-item" href="../pages/logout.php">Uitloggen</a></li>
-                            <?php elseif ($medewerker && $medewerker['id_medewerker'] != 1):?>
-                                <li><a class="dropdown-item" href="../pages/account.php">Account</a></li>
-                                <li><a class="dropdown-item" href="../pages/reservering_medewerker.php">Reserveringen</a></li>
-                                <li><a class="dropdown-item" href="../pages/voertuigen.php">Voertuigen</a></li>
-                                <li><a class="dropdown-item" href="../pages/logout.php">Uitloggen</a></li>
-                            <?php elseif ($medewerker['id_medewerker'] == 1): ?>
-                                <li><a class="dropdown-item" href="../pages/account.php">Account</a></li>
-                                <li><a class="dropdown-item" href="../pages/instellingen.php">Instellingen</a></li>
-                                <li><a class="dropdown-item" href="../pages/reservering_medewerker.php">Reserveringen</a></li>
-                                <li><a class="dropdown-item" href="../pages/voertuigen.php">Voertuigen</a></li>
-                                <li><a class="dropdown-item" href="../pages/logout.php">Uitloggen</a></li>
-                            <?php endif; ?>
+                            <!--call function-->
+                            <?php navigatieGebruiker($conn) ?>
                         </ul>
                     </li>
                 </ul>
@@ -94,6 +82,7 @@ $klant = check_login_klant($conn);
 
     <!--  Content van de pagina -->
     <div class="container-fluid">
+        <!--print data -->
         <?php if ($klant): ?>
 
             <div class="container-fluid p-4 mb-5 ">
@@ -284,7 +273,7 @@ $klant = check_login_klant($conn);
                             <h3 class="mb-3">ROL</h3>
 
                             <div class="form-group mb-3">
-                                <input class="form-control" type="text"  placeholder="Rol" value=" <?php check_admin_rol($conn); ?>" readonly>
+                                <input class="form-control" type="text"  placeholder="Rol" value=" <?php checkRolAdmin($conn); ?>" readonly>
                             </div>
 
                         </form>

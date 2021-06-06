@@ -4,12 +4,14 @@
 session_start();
 
 //require functions
-require 'functions/db.php';
-require 'functions/sign_up.php';
+require 'functions/getDB.php';
+require 'functions/signUp.php';
 
 //call functions
 $conn = getDB();
-sign_up($conn);
+signUp($conn);
+
+
 ?>
 
     <!-- Voeg html header toe -->

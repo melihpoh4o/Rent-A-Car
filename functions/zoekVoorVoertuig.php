@@ -1,5 +1,6 @@
 <?php
-function zoek_voor_voertuig($conn){
+//zoek voor beschikbare voertuigen
+function zoekVoorVoertuig($conn){
     if (isset($_POST['voeg_auto_toe'])){
         $start_datum = $_POST['start_datum_voertuig'];
         $eind_datum = $_POST['eind_datum_voertuig'];
@@ -12,8 +13,8 @@ function zoek_voor_voertuig($conn){
 
         if ($eind_datum < $start_datum || $start_datum == date('Y-m-d')){
             ?>
-            <div class="col-md-12">
-                <p class='text-center'>Verkeerde datum probeer het opnieuw</p>;
+            <div class="col-md-12 shadow-lg alert alert-muted text-center" role="alert">
+                <p class='text-center'>Verkeerde datum probeer het opnieuw</p>
             </div>
             <?php
             die();
@@ -43,15 +44,13 @@ function zoek_voor_voertuig($conn){
         }
 
         $query_show = "SELECT * 
-                  FROM auto
-                  JOIN auto_model 
-                  ON auto.id_auto_model = auto_model.id_auto_model";
+                       FROM auto
+                       JOIN auto_model 
+                       ON auto.id_auto_model = auto_model.id_auto_model";
         $results_show = mysqli_query($conn,$query_show);
-
         $i = 1;
         if ($_POST['voertuigen'] == 1){
             while ($data_show = mysqli_fetch_assoc($results_show)){
-                $id_auto = $data_show['id_auto'];
                 if ($data_show['auto_status_reservering'] == 0) {
                     if ($data_show['auto_soort'] == 0 && $data_show['auto_status'] == 0){
                         ?>
@@ -59,14 +58,12 @@ function zoek_voor_voertuig($conn){
                             <div class="card shadow-lg rounded">
                                 <img height="50%" class='card-img-top' src='image/<?php echo $data_show['auto_img'] ?>'>
                                 <div class="card-body bg-light">
-                                    <a class="text-secondary shadow-lg rounded" href="./pages/voertuig_view.php?view=<?php echo $data_show['id_auto_model']?>">
+                                    <a class="text-secondary shadow-lg rounded" href="./pages/voertuig_view.php?view=<?php echo $data_show['id_auto']
+                                    ?>&start_datum=<?php echo $start_datum?>&eind_datum=<?php echo $eind_datum?>">
                                         <h5 class="card-title text-dark"><?php echo $data_show['auto_model_merk'] . " " . $data_show['auto_model_model'] ?></h5>
                                     </a>
                                     <p class="card-text text-secondary" ><?php echo $data_show['auto_info']?></p>
                                 </div>
-                                <a href=./pages/insert_car.php?id_auto=<?php echo $id_auto;
-                                    ?>&start_datum=<?php echo $start_datum;?>&eind_datum=<?php echo $eind_datum?>
-                                   class="btn btn-success bg-light text-dark m-3  ">VOERTUIG RESERVEREN</a>
                             </div>
                         </div>
                         <?php if($i % 3 === 0) echo "</div><div class='row row-cols-1 row-cols-md-3 g-4 m-2'>"; ?>
@@ -82,7 +79,6 @@ function zoek_voor_voertuig($conn){
 
         if ($_POST['voertuigen'] == 2){
             while ($data_show = mysqli_fetch_assoc($results_show)){
-                $id_auto = $data_show['id_auto'];
                 if ($data_show['auto_status_reservering'] == 0) {
                     if ($data_show['auto_soort'] == 1 && $data_show['auto_status'] == 0){
                         ?>
@@ -90,14 +86,12 @@ function zoek_voor_voertuig($conn){
                             <div class="card shadow-lg rounded">
                                 <img height="50%" class='card-img-top' src='image/<?php echo $data_show['auto_img'] ?>'>
                                 <div class="card-body bg-light">
-                                    <a class="text-secondary shadow-lg rounded" href="./pages/voertuig_view.php?view=<?php echo $data_show['id_auto_model']?>">
+                                    <a class="text-secondary shadow-lg rounded" href="./pages/voertuig_view.php?view=<?php echo $data_show['id_auto']
+                                    ?>&start_datum=<?php echo $start_datum?>&eind_datum=<?php echo $eind_datum?>">
                                         <h5 class="card-title text-dark"><?php echo $data_show['auto_model_merk'] . " " . $data_show['auto_model_model'] ?></h5>
                                     </a>
                                     <p class="card-text text-secondary" ><?php echo $data_show['auto_info']?></p>
                                 </div>
-                                <a href=./pages/insert_car.php?id_auto=<?php echo $id_auto;
-                                    ?>&start_datum=<?php echo $start_datum;?>&eind_datum=<?php echo $eind_datum?>
-                                       class="btn btn-success bg-light text-dark m-3  ">VOERTUIG RESERVEREN</a>
                             </div>
                         </div>
                         <?php if($i % 3 === 0) echo "</div><div class='row row-cols-1 row-cols-md-3 g-4 m-2'>"; ?>

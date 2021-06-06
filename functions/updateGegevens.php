@@ -1,7 +1,7 @@
 <?php
 
 //gegevens van gebruiker bijwerken
-function update_gegevens($conn){
+function updateGegevens($conn){
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 

@@ -2,42 +2,58 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ea059298-b78b-4f54-96dd-b43615818bdd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/functions/delete_factuur.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/functions/factuurAanmaken.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/image/White BMW X3 Car - 1280x709.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/delete_reservering.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/factuur.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pages/reservering_medewerker.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/functions/navigatieGebruiker.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/contact.php" beforeDir="false" afterPath="$PROJECT_DIR$/contact.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/functions/check_gebruiker_nav.php" beforeDir="false" afterPath="$PROJECT_DIR$/functions/check_gebruiker_nav.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/functions/check_if_logged_in.php" beforeDir="false" afterPath="$PROJECT_DIR$/functions/check_if_logged_in.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/functions/check_login_gegevens.php" beforeDir="false" afterPath="$PROJECT_DIR$/functions/check_login_gegevens.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/functions/show_cars.php" beforeDir="false" afterPath="$PROJECT_DIR$/functions/show_cars.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/functions/zoek_voertuig.php" beforeDir="false" afterPath="$PROJECT_DIR$/functions/zoek_voertuig.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/image/2018-bmw-x3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/image/IVECO Daily.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/image/IVECO Daily.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/image/VW_Passat_B8_Limousine_2.0_TDI_Highline.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/image/VW_Passat_B8_Limousine_2.0_TDI_Highline.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/image/audi a3.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/image/audi a3.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/image/ford_c_max_2015.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/image/ford_c_max_2015.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/image/mercedes-benz citan.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/image/mercedes-benz citan.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/image/mercedes-benz-sprinter-black.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/image/mercedes-benz-sprinter-black.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/image/mitsubishi_spacestar.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/image/mitsubishi_spacestar.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/image/opel-corsa-2018.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/image/opel-corsa-2018.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/image/peugoet 108.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/image/peugoet 108.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/image/renault-captur-2020.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/image/renault-captur-2020.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/image/toyota dyna 2016.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/image/toyota dyna 2016.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/image/toyota-proace.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/image/toyota-proace.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/image/volkswagen-polo-1-2-tsi-5-deurs-comfortline.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/image/volkswagen-polo-1-2-tsi-5-deurs-comfortline.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions/admin_gebruiker_check.php" beforeDir="false" afterPath="$PROJECT_DIR$/functions/adminCheckGebruiker.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions/check_admin_rol.php" beforeDir="false" afterPath="$PROJECT_DIR$/functions/checkRolAdmin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions/check_gebruiker_nav.php" beforeDir="false" afterPath="$PROJECT_DIR$/functions/checkNavGebruiker.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions/check_if_logged_in.php" beforeDir="false" afterPath="$PROJECT_DIR$/functions/checkIfLoggedIn.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions/check_login_gegevens.php" beforeDir="false" afterPath="$PROJECT_DIR$/functions/checkLoginGegevens.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions/db.php" beforeDir="false" afterPath="$PROJECT_DIR$/functions/getDB.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions/delete_factuur.php" beforeDir="false" afterPath="$PROJECT_DIR$/functions/deleteFactuur.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions/factuurAanmaken.php" beforeDir="false" afterPath="$PROJECT_DIR$/functions/factuurAanmaken.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions/show_cars.php" beforeDir="false" afterPath="$PROJECT_DIR$/functions/showVehicles.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions/sign_up.php" beforeDir="false" afterPath="$PROJECT_DIR$/functions/signUp.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions/update_gegevens.php" beforeDir="false" afterPath="$PROJECT_DIR$/functions/updateGegevens.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions/voertuig_delete.php" beforeDir="false" afterPath="$PROJECT_DIR$/functions/deleteVoertuig.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions/voertuig_info_bewerken.php" beforeDir="false" afterPath="$PROJECT_DIR$/functions/infoVoertuigBewerken.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions/zoek_voertuig.php" beforeDir="false" afterPath="$PROJECT_DIR$/functions/zoekVoertuig.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/functions/zoek_voor_voertuig.php" beforeDir="false" afterPath="$PROJECT_DIR$/functions/zoekVoorVoertuig.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/image/IVECO Daily.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/image/VW_Passat_B8_Limousine_2.0_TDI_Highline.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/image/audi a3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/image/ford_c_max_2015.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/image/mercedes-benz citan.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/image/mercedes-benz-sprinter-black.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/image/mitsubishi_spacestar.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/image/opel-corsa-2018.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/image/peugoet 108.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/image/renault-captur-2020.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/image/toyota dyna 2016.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/image/toyota-proace.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/image/volkswagen-polo-1-2-tsi-5-deurs-comfortline.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/footer.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/footer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/guest_navbar.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/guest_navbar.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/header.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/functions.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/functions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/login.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/account.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/account.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/delete_medewerker.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/delete_medewerker.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/delete_reservering.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/delete_reservering.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/factuur.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/factuur.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/insert_car.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/insert_car.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/instellingen.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/instellingen.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/klant_goedkeuren.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/klant_goedkeuren.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/logout.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/logout.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/mijn_reserveringen.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/reservering_medewerker.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/reservering_medewerker.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/voertuig_bewerken.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/voertuig_bewerken.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/voertuig_toevoegen.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/voertuig_toevoegen.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/voertuig_view.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/voertuig_view.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/voertuigen.php" beforeDir="false" afterPath="$PROJECT_DIR$/pages/voertuigen.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/voertuig_huren.php" beforeDir="false" afterPath="$PROJECT_DIR$/voertuig_huren.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/signup.php" beforeDir="false" afterPath="$PROJECT_DIR$/signup.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/voertuig_huren.php" beforeDir="false" afterPath="$PROJECT_DIR$/reserveer.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,6 +67,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="CSS File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -102,7 +119,12 @@
       <workItem from="1622372458868" duration="26946000" />
       <workItem from="1622455171016" duration="27883000" />
       <workItem from="1622538841248" duration="32896000" />
-      <workItem from="1622624526938" duration="20294000" />
+      <workItem from="1622624526938" duration="24185000" />
+      <workItem from="1622712167641" duration="20545000" />
+      <workItem from="1622756963735" duration="5000" />
+      <workItem from="1622798929999" duration="12035000" />
+      <workItem from="1622893366815" duration="12386000" />
+      <workItem from="1622966560040" duration="9294000" />
     </task>
     <task id="LOCAL-00001" summary="navigatie door de site veranderd,&#10;medewerker kan nu auto's informatie en afbeelding bewerken,&#10;medewerker kan nu auto's verwijderen">
       <created>1622023181081</created>
@@ -132,7 +154,14 @@
       <option name="project" value="LOCAL" />
       <updated>1622397817847</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Klanten kunnen nu auto huren ,factuur uitprinten en medewerkers kunnen lijst uitprinten met de dag reserveringen">
+      <created>1622667292670</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1622667292670</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -143,17 +172,18 @@
     <MESSAGE value="design van de site veranderd,&#10;je kan nu de wat duurde auto's zien op de homepage" />
     <MESSAGE value="Je kan nu kiezen of je personenauto of bestelbus wilt huren, je gaat nu naar persoonlijke pagina van een auto wanneer je op de title van de auto klikt." />
     <MESSAGE value="Je kan nu start en eind datum kiezen om voertuig te reserveren, dan krijg je alle beschikbare voetuigen te op dat datum" />
-    <option name="LAST_COMMIT_MESSAGE" value="Je kan nu start en eind datum kiezen om voertuig te reserveren, dan krijg je alle beschikbare voetuigen te op dat datum" />
+    <MESSAGE value="Klanten kunnen nu auto huren ,factuur uitprinten en medewerkers kunnen lijst uitprinten met de dag reserveringen" />
+    <option name="LAST_COMMIT_MESSAGE" value="Klanten kunnen nu auto huren ,factuur uitprinten en medewerkers kunnen lijst uitprinten met de dag reserveringen" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1622561139055">
+    <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1622734651804">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1622561139055" />
-    <state x="181" y="230" width="979" height="723" key="CommitChangelistDialog2" timestamp="1622397817209">
+    <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1622734651804" />
+    <state x="181" y="230" width="979" height="723" key="CommitChangelistDialog2" timestamp="1622667291830">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="181" y="230" width="979" height="723" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1622397817209" />
+    <state x="181" y="230" width="979" height="723" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1622667291830" />
     <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1622009625678">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -162,18 +192,18 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="763" y="243" key="NewPhpClassDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1622553302096" />
-    <state x="794" y="443" key="NewPhpFileDialog" timestamp="1622656244264">
+    <state x="794" y="443" key="NewPhpFileDialog" timestamp="1622835907863">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="794" y="443" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1622656244264" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1622397819284">
+    <state x="794" y="443" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1622835907863" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1622667295432">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1622397819284" />
-    <state x="616" y="240" key="run.anything.popup" timestamp="1622655125318">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1622667295432" />
+    <state x="616" y="240" key="run.anything.popup" timestamp="1622743484579">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1622655125318" />
+    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1622743484579" />
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1622567826232">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

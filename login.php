@@ -1,16 +1,18 @@
 <?php
 
+//session start
 session_start();
 
 //require functions
-require 'functions/db.php';
-require 'functions/check_login_gegevens.php';
+require 'functions/getDB.php';
+require 'functions/checkLoginGegevens.php';
 
 //call functions
 $conn = getDB();
-check_login_gegevens($conn);
+checkLoginGegevens($conn);
 
 ?>
+
 
     <!-- Voeg html header toe -->
 <?php require 'includes/header.php' ?>

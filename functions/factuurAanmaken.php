@@ -1,5 +1,6 @@
 <?php
 
+//create factuur at the start of the page
 function factuurAanmaken($conn){
 
     $id_klant = $_SESSION['id_klant'];

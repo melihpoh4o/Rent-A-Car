@@ -1,19 +1,20 @@
 <?php
 
+//session start
 session_start();
 
 //require functions
-require 'functions/db.php';
-require 'functions/check_if_logged_in.php';
-require 'functions/check_gebruiker_nav.php';
+require 'functions/getDB.php';
+require 'functions/checkIfLoggedIn.php';
+require 'functions/checkNavGebruiker.php';
 
 //call functions
 $conn = getDB();
-check_if_logged_in($conn);
+checkIfLoggedIn($conn);
 
 //set variables tp check if medewerker or klant is logged in
-$medewerker = check_login_medewerker($conn);
-$klant = check_login_klant($conn);
+$medewerker = checkLoginMedewerker($conn);
+$klant = checkLoginKlant($conn);
 
 
 ?>
@@ -38,7 +39,7 @@ $klant = check_login_klant($conn);
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link " href="voertuig_huren.php">AUTO HUREN</a>
+                    <a class="nav-link " href="reserveer.php">RESERVEER</a>
                 </li>
 
                 <li class="nav-item ">
@@ -59,10 +60,12 @@ $klant = check_login_klant($conn);
                         </a>
                         <ul class="dropdown-menu " style="right: 0; left: auto">
                             <li><a class="dropdown-item" href="pages/account.php">Account</a></li>
+                            <!--check if klant is logged in-->
                             <?php if ($klant)
                                 echo "<li><a class='dropdown-item' href='./pages/factuur.php'>Factuur</a></li>";
                             ?>
-                            <?php if ($medewerker) check_gebruiker_nav($conn) ?>
+                            <!--call function nav-->
+                            <?php if ($medewerker) checkNavGebruiker($conn) ?>
                             <li><a class="dropdown-item" href="pages/logout.php">Uitloggen</a></li>
                         </ul>
                     </li>
@@ -79,10 +82,44 @@ $klant = check_login_klant($conn);
 
 <?php endif; ?>
 
-
     <!--  Content van de pagina -->
     <div class="container-fluid">
-
+        <div class="row align-items-start g-4 m-2 mb-5">
+            <h3>Contact</h3>
+            <div class="col-sm col-sm-8">
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab asperiores aut autem consectetur culpa
+                    dolore dolorem dolores ipsa mollitia numquam optio, quaerat quis quod quos, recusandae sint soluta sunt tempora.
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae blanditiis corporis culpa ea
+                    earum est eveniet harum incidunt maiores minima, natus nesciunt perferendis quaerat reiciendis repellat soluta tenetur totam veniam.
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus asperiores assumenda aut
+                    autem consequatur consequuntur enim eum fugiat iure magni nam, nemo officia reprehenderit
+                    repudiandae rerum sed similique soluta totam.
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci aperiam assumenda magni, molestias
+                    quis reiciendis totam voluptates. Atque maiores maxime possimus quas quasi qui sed suscipit totam velit?
+                    Dolores, eos.
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium animi debitis inventore maiores
+                    repudiandae tenetur vitae voluptatibus! Asperiores atque cum delectus, ducimus laborum mollitia neque
+                    porro quia quos similique ullam.
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci aperiam architecto aut,
+                    cupiditate dolor dolore doloremque error est et fugit id iusto mollitia natus nesciunt porro qui repellendus veniam.
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad corporis culpa dolorem
+                    ducimus hic illum molestiae porro? Cum deleniti enim laboriosam maxime praesentium reiciendis sequi.
+                    Consequuntur magnam porro voluptatem? Earum.
+                </p>
+            </div>
+            <div class="col-sm col-sm-4">
+                <div class="card">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><p>Adres: Autopad 12</p></li>
+                        <li class="list-group-item"><p>Postcode: 1335 YY</p></li>
+                        <li class="list-group-item"><p>Plaats: ALMERE</p></li>
+                        <li class="list-group-item"><p>Telefoon: (036) 123 45 67</p></li>
+                        <li class="list-group-item"><p>E-mail: info@rent-a-car.nl</p></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- Voeg footer toe -->

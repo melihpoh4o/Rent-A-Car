@@ -1,21 +1,21 @@
 <?php
 
+//start session
 session_start();
 
 //require functions
-require 'functions/db.php';
-require 'functions/check_if_logged_in.php';
-require 'functions/check_gebruiker_nav.php';
-require 'functions/show_cars.php';
+require 'functions/getDB.php';
+require 'functions/checkIfLoggedIn.php';
+require 'functions/checkNavGebruiker.php';
+require 'functions/showVehicles.php';
 
 //call functions
 $conn = getDB();
-check_if_logged_in($conn);
-
+checkIfLoggedIn($conn);
 
 //set variables tp check if medewerker or klant is logged in
-$medewerker = check_login_medewerker($conn);
-$klant = check_login_klant($conn);
+$medewerker = checkLoginMedewerker($conn);
+$klant = checkLoginKlant($conn);
 
 
 
@@ -41,7 +41,7 @@ $klant = check_login_klant($conn);
             </li>
 
             <li class="nav-item">
-                <a class="nav-link " href="voertuig_huren.php">AUTO HUREN</a>
+                <a class="nav-link " href="reserveer.php">RESERVEER</a>
             </li>
 
             <li class="nav-item ">
@@ -62,10 +62,12 @@ $klant = check_login_klant($conn);
                     </a>
                     <ul class="dropdown-menu " style="right: 0; left: auto">
                         <li><a class="dropdown-item" href="pages/account.php">Account</a></li>
+                        <!--check if klant is logged in-->
                         <?php if ($klant)
                             echo "<li><a class='dropdown-item' href='./pages/factuur.php'>Factuur</a></li>";
                         ?>
-                        <?php if ($medewerker) check_gebruiker_nav($conn) ?>
+                        <!--call function nav-->
+                        <?php if ($medewerker) checkNavGebruiker($conn) ?>
 
                         <li><a class="dropdown-item" href="pages/logout.php">Uitloggen</a></li>
                     </ul>
@@ -83,8 +85,35 @@ $klant = check_login_klant($conn);
 
 <?php endif; ?>
 <!--  Content van de pagina -->
-    <div class="row row-cols-1 row-cols-md-3 g-4 m-4 ">
-        <?php show_cars($conn); ?>
+    <div class="container-fluid">
+        <div class="row align-items-start g-4 m-2">
+            <h3>Rent-a-Car</h3>
+            <div class="col-sm col-sm-8">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad dolor,
+                    doloribus id impedit in labore magni natus odio pariatur perspiciatis qui quia quo vel voluptate voluptatem!
+                    Fuga libero omnis tempora.
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab at deserunt, eaque earum fugiat, incidunt ipsam nisi nostrum quam quibusdam soluta tenetur.
+                    Asperiores commodi dignissimos eligendi excepturi nobis odit reprehenderit?
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, culpa debitis distinctio enim in incidunt inventore ipsum
+                    libero non nulla officiis porro quas quasi quia quibusdam quidem, repudiandae ullam ut.
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque aut eius explicabo ipsa magni nemo omnis, quaerat quam quisquam vitae!
+                    Eius eveniet inventore qui repellendus. Consequatur ipsam laborum quo sint.
+                </p>
+            </div>
+            <div class="col-sm col-sm-4">
+                <div class="card">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Telefoon: (036) 123 45 67</li>
+                        <li class="list-group-item">Adres: Autopad 12 1335 YY ALMERE</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="row row-cols-1 row-cols-md-3 g-4 m-2 ">
+            <!--call function-->
+            <?php showVehicles($conn); ?>
+        </div>
     </div>
 
 

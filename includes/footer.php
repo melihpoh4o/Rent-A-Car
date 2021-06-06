@@ -1,4 +1,5 @@
-<footer class=" shadow-lg rounded text-center text-dark bg-secondary p-5 ">
+<!--footer-->
+<footer class=" shadow-lg rounded p-5" style="background-color:#E6E6E6">
 
 </footer>
 

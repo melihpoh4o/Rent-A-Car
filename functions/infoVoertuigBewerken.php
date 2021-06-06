@@ -1,9 +1,9 @@
 <?php
 
-function voertuig_info_bewerken($conn){
+//edit info car
+function infoVoertuigBewerken($conn){
 
     $get_id = $_GET['edit'];
-
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST'){
         if (isset($_POST['opslaan'])){
@@ -54,7 +54,7 @@ function voertuig_info_bewerken($conn){
             }
 
             mysqli_query($conn,$query_update);
-            header("Location: ../pages/voertuig_bewerken.php?edit=$get_id");
+            header("Location: ../pages/voertuigen.php");
 
         }
     }

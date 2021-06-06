@@ -1,5 +1,6 @@
 <?php
 
+//database
 function getDB(){
     $db_host = "localhost";
     $db_name = "rent-a-car";
