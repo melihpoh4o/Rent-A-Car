@@ -1,5 +1,11 @@
 <!--footer-->
-<footer class=" shadow-lg rounded p-5" style="background-color:#E6E6E6">
+<footer class=" shadow-lg rounded p-3" style="background-color:#E6E6E6">
+
+    <!-- Copyright -->
+    <div class="text-center">
+        <p class="m-3">© 2021 Copyright: Rent-a-Car</p>
+    </div>
+    <!-- Copyright -->
 
 </footer>
 

@@ -85,7 +85,7 @@ $klant = checkLoginKlant($conn);
     <!--  Content van de pagina -->
     <div class="container-fluid">
         <div class="row align-items-start g-4 m-2 mb-5">
-            <h3>Contact</h3>
+            <h3 class="d-flex justify-content-center">Contact</h3>
             <div class="col-sm col-sm-8">
                 <p>
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab asperiores aut autem consectetur culpa

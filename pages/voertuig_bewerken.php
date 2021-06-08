@@ -185,7 +185,7 @@ $get_id = $_GET['edit'];
                             <img class="img-fluid" alt="Responsive image" src="<?php echo "../image/" .$auto['auto_img']; ?>">
                             <?php endif; ?>
                     </div>
-                    <button type="submit" name="opslaan" class="btn btn-secondary bg-light text-dark ">OPSLAAN</button>
+                    <button type="submit" name="opslaan" class="btn btn-success bg-light text-dark ">OPSLAAN</button>
                     <button type="submit" name="delete" class="btn btn-danger bg-light text-dark ">VERWIJDEREN</button>
 
                 </form>

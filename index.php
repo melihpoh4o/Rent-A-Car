@@ -87,7 +87,7 @@ $klant = checkLoginKlant($conn);
 <!--  Content van de pagina -->
     <div class="container-fluid">
         <div class="row align-items-start g-4 m-2">
-            <h3>Rent-a-Car</h3>
+            <h3 class="d-flex justify-content-center">Rent-a-Car</h3>
             <div class="col-sm col-sm-8">
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad dolor,
                     doloribus id impedit in labore magni natus odio pariatur perspiciatis qui quia quo vel voluptate voluptatem!
